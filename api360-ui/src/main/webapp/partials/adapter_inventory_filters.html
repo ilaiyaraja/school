@@ -1,0 +1,54 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadAdapterInventoryComboBox()"  ng-controller="AdapterInventoryFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+			   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Adapter Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleAdapterInventoryData' 
+					button-label='Bundles'
+					selected-model='bundleAdapterInventoryModel' 
+					extra-settings='bundleAdapterInventorySettings' 
+					translation-texts='bundleAdapterInventoryCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiAdapterInventoryData' 
+					button-label='APIs'
+					selected-model='apiAdapterInventoryModel' 
+					extra-settings='apiAdapterInventorySettings' 
+					translation-texts='apiAdapterInventoryCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="backends">Adapters:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='backendAdapterInventoryData' 
+					button-label='Backends'
+					selected-model='backendAdapterInventoryModel' 
+					extra-settings='backendAdapterInventorySettings' 
+					translation-texts='backendAdapterInventoryCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitAdapterInventorySearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetAdapterInventoryFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

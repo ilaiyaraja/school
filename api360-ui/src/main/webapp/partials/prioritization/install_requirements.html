@@ -1,0 +1,293 @@
+<style>
+.table td, th{
+	text-align:center;
+}
+</style>
+
+<br />
+<div id="left" style="width: 60%">
+<div class="form-horizontal" ng-init="init()">
+	<div class="form-group">
+		<label for="selectRequest" class="col-sm-3 control-label">Request
+			Type: </label>
+		<div class="col-sm-8">
+			<select class="form-control" ng-model="request_type" ng-options="request as request.label for request in requestTypes" ng-change="update()"></select>
+		</div>
+		
+	</div>
+	<!-- ADDED -->
+	<div ng-show="irvisible">
+	<div class="form-group">
+		<label for="selectBundle" class="col-sm-3 control-label">Bundle:
+		</label>
+		<div class="col-sm-8">
+			<!--<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundles"></select>-->
+			<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundleModel"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="checkboxNotification" class="col-sm-3 control-label">Notification:
+		</label>
+		<div class="col-sm-3">
+			<!-- <div class="checkbox">
+					<label> <input type="checkbox" id="qCheckbox"
+						value="qNotification"> Q Notification
+					</label>
+				</div>
+				<div class="checkbox">
+					<label> <input type="checkbox" id="emailCheckbox"
+						value="emailNotification"> Email Notification
+					</label>
+				</div>-->
+			<!--<div ng-repeat="notificationName in notifications">-->
+				<div ng-repeat="notificationName in notifications" class="checkbox">
+					<label><input type="checkbox" name="selectedNotification[]"
+						value="{{fruitName}}"
+						ng-checked="selection.indexOf(notificationName) > -1"
+						ng-click="toggleSelection(notificationName)">
+						{{notificationName}} Notification</label>
+				</div>
+			<!--</div>-->
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-4">
+			<label for="environmentField" class="col-sm-1 control-label">Environment</label>
+		</div>
+		<div class="col-sm-">
+			<label for="ticketField" class="col-sm-1 control-label">Ticket#</label>
+		</div>
+	</div>
+
+	<ul class="list-unstyled">
+		<li ng-repeat="elemnt in questionelemnt">
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-4">
+					<!-- <input type="text" class="form-control"
+						ng-model="elemnt.environment" placeholder="Environment"
+						id="environment" /> -->
+						<select class="form-control" ng-model="elemnt.environment" ng-options="env as env.label for env in environmentModel"></select>
+				</div>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" ng-model="elemnt.ticket"
+						placeholder="Ticket Number" id="ticketnumber" />
+				</div>
+
+			</div>
+		</li>
+		<li>
+			<div class="form-group">
+				<div class="col-sm-9"></div>
+				<div class="col-sm-2">
+					<div class="form-inline">
+						<button type="button" id="removeButton" data-loading-text="Remove"
+							class="btn btn-default" autocomplete="off"
+							ng-click="questionelemnt.splice($scope.questionelemnt.length - 1, 1)">
+							<i class="glyphicon glyphicon-minus"></i>
+						</button>
+
+						<button type="button" id="addButton" data-loading-text="Add"
+							class="btn btn-default" autocomplete="off"
+							ng-click="newItem($event)">
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+	<br />
+	<div class="form-group">
+		<label for="notesTextarea" class="col-sm-3 control-label">Notes:
+		</label>
+		<div class="col-sm-8">
+			<textarea ng-model="notes" class="form-control" rows="4"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-9"></div>
+		<div class="col-sm-3">
+			<button type="button" id="submitButton" data-loading-text="Submit"
+				class="btn btn-info" autocomplete="off" ng-click="submitIR($event)">
+				Submit</button>
+		</div>
+	</div>
+	</div>
+	<!-- OTHER ENGAGEMENT -->
+	<div ng-show="othervisible">
+		<div class="form-group">
+			<label for="inputErrorCode" class="col-sm-3 control-label">Error Code:
+			</label>
+			<div class="col-sm-8">
+				<!--<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundles"></select>-->
+				<input type="text" class="form-control" ng-model="errorcode"
+								placeholder="Error Code" id="errorcode" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="selectBundle" class="col-sm-3 control-label">Conversation ID:
+			</label>
+			<div class="col-sm-8">
+				<!--<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundles"></select>-->
+				<input type="text" class="form-control" ng-model="convid"
+								placeholder="Conversation ID" id="convid" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="selectOtherEnvironment" class="col-sm-3 control-label">Environment:
+			</label>
+			<div class="col-sm-8">
+				<!--<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundles"></select>-->
+				<select class="form-control" ng-model="otherEnvironment" ng-options="env as env.label for env in environmentModel"></select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="descriptionTextarea" class="col-sm-3 control-label">Description:
+			</label>
+			<div class="col-sm-8">
+				<textarea ng-model="description" class="form-control" rows="4"></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="selectPriority" class="col-sm-3 control-label">Priority:
+			</label>
+			<div class="col-sm-8">
+				<!--<select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundles"></select>-->
+				<select class="form-control" ng-model="priority" ng-options="item as item.label for item in priorities"></select>
+			</div>
+		</div>
+		<div class="form-group">
+		<div class="col-sm-9"></div>
+		<div class="col-sm-3">
+			<button type="button" id="otherSubmitButton" data-loading-text="Submit"
+				class="btn btn-info" autocomplete="off" ng-click="">
+				Submit</button>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+<div id="right" style="width: 40%;">
+<!-- ADDED 1/30 -->
+		
+		<!--<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Ticket #</th>
+						<th>Status</th>																								
+						<th>Reason</th>																							
+					</tr>
+					<tr>
+						<td>test</td>
+						<td>test</td>
+						<td>test</td>
+					</tr>
+					<tr>
+						<td>test</td>
+						<td>test</td>
+						<td>test</td>
+					</tr>
+					<tr>
+						<td>test</td>
+						<td>test</td>
+						<td>test</td>
+					</tr>
+				</thead>										
+			</table>
+		</div>-->
+		
+		<!--<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<b><i>Ticket Status</i></b>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="features-table" id="api360Grid">
+										<thead>
+											<tr>
+												<th class="col-sm-1">Ticket #</th>
+												<th class="col-sm-1">Status</th>																								
+												<th class="col-sm-1">Escalated</th>																							
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>12345</td>
+												<td>Open</td>
+												<td>Y</td>
+											</tr>
+											<tr>
+												<td>23456</td>
+												<td>Open</td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>34567</td>
+												<td>Open</td>
+												<td>N</td>
+											</tr>
+										</tbody>										
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>-->
+				<div class="col-sm-10">
+					<div class="panel panel-default">
+					  <!-- Default panel contents -->
+					  <div class="panel-heading">
+					  	<label>REMEDY Ticket Status</label>
+					  </div>
+					
+					  <!-- Table -->
+					  <table class="table" style="margin: 0px; padding: 0px;">
+								<tr>
+									<th class="col-sm-1">Ticket #</th>
+									<th class="col-sm-1">Status</th>																								
+									<th class="col-sm-1">Escalated</th>																							
+								</tr>
+								<tr ng-repeat="ticket in ticketModel">
+									<td>{{ticket.case_id}}</td>
+									<td>{{ticket.status}}</td>
+									<td>Y</td>
+								</tr>
+								<tr ng-repeat="ticket in ticketModelNonEscalated">
+									<td>{{ticket.case_id}}</td>
+									<td>{{ticket.status}}</td>
+									<td>N</td>
+								</tr>
+								<!--<tr>
+									<td>12345</td>
+									<td>Open</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>23456</td>
+									<td>Open</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>34567</td>
+									<td>Open</td>
+									<td>N</td>
+								</tr>-->
+					  </table>
+					  
+					  <div class="panel-body" ng-if="ticketModel.length <= 0 && ticketModelNonEscalated.length <= 0">
+    					<p>No remedy ticket is currently open.</p>
+ 					  </div>
+
+					  
+					  
+					</div>
+				</div>
+				<div class="col-sm-2"></div>
+</div>

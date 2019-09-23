@@ -1,0 +1,39 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden;" ng-init="InstalledBundleloadComboBox()"  ng-controller="InstalledBundleVersionFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleInstalledBundleData' 
+					button-label='Bundles'
+					selected-model='bundleInstalledBundleModel' 
+					extra-settings='bundleInstalledBundleSettings' 
+					translation-texts='bundleInstalledBundleCustomTexts'
+					></div>	
+			  </div>
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="environments">Environment:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleInstalledEnvironmentData' 
+					button-label='Environments'
+					selected-model='bundleInstalledEnvironmentModel' 
+					extra-settings='bundleInstalledEnvironmentSettings' 
+					translation-texts='bundleInstalledEnvironmentTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitInstalledBundleSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetInstalledBundleFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

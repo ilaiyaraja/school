@@ -1,0 +1,60 @@
+
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+
+</style>
+
+
+<div id='projectPortfolioFilterId' ng-include="'partials/project_portfolio_filters.html'"></div>
+
+<div id='right'>
+
+   <div class="list-inline hidden-sm hidden-sx hidden-md"
+		style="padding-left: 5px; z-index: 100; position: fixed;"> <a
+		ng-href=""
+		ng-click="projectPortfolioShowHide();projectPortfolioShowHideFilter=!projectPortfolioShowHideFilter"
+		title="Hide/Show Filters"> <i alt="Hide/Show Filters"
+			ng-class="projectPortfolioShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+	</a>
+  </div>
+	         		
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+				  <div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<b><i>{{gridHeaderMessages}}</i></b>
+								<span class="pull-right"><span>Note: Data dependent on accuracy in <a style="color:white;"href="#">MPD</a></span></span>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">								
+									<table class="table table-striped table-bordered table-hover display" id="projectportfolioGridID">
+										<thead>
+											<tr>
+												<th>PID</th>
+												<th>Release</th>	
+												<th>ServiceBundle</th>
+												<th>ServiceBundleVersion</th>	
+												<th>API</th>									
+												<th>AdapterBundle</th>
+												<th>Backend</th>
+												<th>Program</th>																
+											</tr>
+										</thead>										
+									</table>								
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+</div>					

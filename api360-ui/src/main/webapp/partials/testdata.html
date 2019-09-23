@@ -1,0 +1,209 @@
+
+<div ng-controller="dialogCtrl" style="display:none;">
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-danger" ng-click="launch('error')">Error Dialog</button>
+			<button class="btn btn-primary" ng-click="launch('wait')">Wait Dialog</button>
+			<button class="btn btn-primary" ng-click="launch('customwait')">"Custom" Wait Dialog</button>
+			<button class="btn btn-default" ng-click="launch('notify')">Notify Dialog</button>
+			<button class="btn btn-success" ng-click="launch('confirm')">Confirm Dialog</button>        		
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid" id="testdatacontainer" style="display:none;">
+
+	<div class="row-fluid">
+	
+		<div class="spacer_100 navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadComboBox()">
+		
+		  <form class="form-inline" role="form">
+		  	
+		      <div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="accountTypes">Account Types:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='accountTypesData' 
+					button-label='Account Type'
+					selected-model='accountTypesModel' 
+					extra-settings='accountTypesSettings' 
+					translation-texts='accountTypesCustomTexts'
+					></div>	
+			  </div>
+  
+  
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="customerTypes">Customer Types:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='customerTypesData' 
+					selected-model='customerTypesModel' 
+					extra-settings='customerTypesSettings' 
+					translation-texts='customerTypesCustomTexts'
+					></div>
+			  </div>
+			  		
+			
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="noOfSubscribers">Subscribers:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='noOfSubscribersData' 
+					selected-model='noOfSubscribersModel' 
+					extra-settings='noOfSubscribersSettings' 
+					translation-texts='noOfSubscribersCustomTexts'
+					></div>
+			  </div>
+			  		
+			
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="liabilityTypes">Liability Types:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='liabilityTypesData' 
+					selected-model='liabilityTypesModel' 
+					extra-settings='liabilityTypesSettings' 
+					translation-texts='liabilityTypesCustomTexts'
+					></div>	
+			  </div>		
+			
+			
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="installmentTerms">Installment Terms:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='installmentTermsData' 
+					selected-model='installmentTermsModel' 
+					extra-settings='installmentTermsSettings' 
+					translation-texts='installmentTermsCustomTexts'
+					></div>
+			  </div>		
+			
+	
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="installmentPlanStatus">Installment Plan Status:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='installmentPlanStatusData' 
+					selected-model='installmentPlanStatusModel' 
+					extra-settings='installmentPlanStatusSettings' 
+					translation-texts='installmentPlanStatusCustomTexts'
+					></div>
+			  </div>	
+			
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="balances">Balances:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='balanceData' 
+					selected-model='balanceModel' 
+					extra-settings='balanceSettings' 
+					translation-texts='balanceCustomTexts'
+					></div>
+			  </div>
+			
+			<div class="form-group spacer">
+			    <label class="control-label col-lg-12" for="pastDue">PastDue:</label>
+			    <div class='spacer' ng-dropdown-multiselect='' 
+					options='balanceData' 
+					selected-model='balanceModel' 
+					extra-settings='balanceSettings' 
+					translation-texts='balanceCustomTexts'
+					></div>
+			  </div>
+			  		
+			
+			<div class="form-group spacer">
+		    <label class="control-label col-lg-12" for="paymentOptions">PaymentOptions:</label>
+		    <div class='spacer' ng-dropdown-multiselect='' 
+					options='paymentOptionsData' 
+					selected-model='paymentOptionsModel' 
+					extra-settings='paymentOptionsSettings' 
+					translation-texts='paymentOptionsCustomTexts'
+					></div>
+		  </div>	
+			
+			
+			<div class="form-group spacer">
+		    <label class="control-label col-lg-12" for="paymentProfile">PaymentProfile:</label>
+		    <div class='spacer' ng-dropdown-multiselect='' 
+					options='paymentProfileData' 
+					selected-model='paymentProfileModel' 
+					extra-settings='paymentProfileSettings' 
+					translation-texts='paymentProfileCustomTexts'
+					></div>
+		  </div>
+			
+					
+		<div class="form-group spacer">
+		    <label class="control-label col-lg-12" for="billPDF">Bill PDFs:</label>
+		    <div class='spacer' ng-dropdown-multiselect='' 
+					options='billPDFData' 
+					selected-model='billPDFModel' 
+					extra-settings='billPDFSettings' 
+					translation-texts='billPDFCustomTexts'
+					></div>
+		  </div>
+		  
+		  <div class="form-group spacer">
+						<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitSearch()">
+							Search <i class="glyphicon glyphicon-search"></i>
+						</button>
+						<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetFilters()">
+							Reset <i class="glyphicon glyphicon-repeat"></i>
+						</button>
+					</div>			
+			</form>			
+		</div>
+		
+					
+			<!--  <span class="label label-info">{{generalMessages}}</span>-->
+			<div class="row"> 				
+					<div class="navbar navbar-default navbar-fixed-right hidden-md hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#">Filters</a>
+				</div>			
+			</div>
+			
+			
+			<div class="row spacer_100">
+					
+					
+					
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<b><i>{{gridHeaderMessages}}</i></b>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-hover display" id="testDataGrid">
+										<thead>
+											<tr>
+												<th><input type="checkbox" id="checkall" title="Select all" name="Check All" value="unchecked"/></th>
+												<th>TestCaseName</th>
+												<th>AccountTypes</th>
+												<th>CustomerTypes</th>
+												<th>NoOfSubscribers</th>
+												<th>LiabilityTypes</th>
+												<th>InstallmentTerms</th>												
+												<th>InstallmentPlanStatus</th>
+												<th>Balance</th>
+												<th>PastDue</th>
+												<th>PaymentOptions</th>
+												<th>PaymentProfile</th>
+												<th>BillPDF</th>
+											</tr>
+										</thead>										
+									</table>
+								</div>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+				<!-- /.row -->
+			</div>
+		</div>
+	

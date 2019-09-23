@@ -1,0 +1,22 @@
+
+
+<div class="container-fluid" ng-controller="APISearchTABCtrl" style="width: 100%;">
+
+	<!-- 
+    <span class="label label-info label-ext" ng-click="tabManager.addTab()" style="cursor:pointer">Add a Tab</span><br/><br/>
+    
+    <a href="" ng-click="tabManager.select(0)">pick me : 1</a> | 
+    <a href="" ng-click="tabManager.select(1)">pick me : 2</a>
+    <br/><br/>
+ -->
+  
+    <div class="row">
+        <div tabs>
+            <div ng-repeat="tabInfo in tabManager.tabItems" pane title="{{ tabInfo.title | limit:15 }}">                
+                <div ng-include="tabInfo.content" style="margin-top: 10px;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    
+</div><!-- /container -->
+</div> <!-- /container -->

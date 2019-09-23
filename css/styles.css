@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'roboto-regular';
+    src: url('../fonts/roboto/Roboto-Regular.ttf');
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background:#000;
+  font-family: roboto-regular, Verdana, Geneva, sans-serif;
+}
+a, ul{
+     text-decoration: none !important;
+     color: inherit;
+    list-style-type: none;
+}
+.container{
+    max-width: 1140px;
+    background: #f0f0f0;
+    background: #fff;
+}
+.container-level1{
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #fff;
+
+}
+.logo-text{
+    font-size: 16px;
+    margin: 40px 0 0 0;
+    vertical-align: middle;
+    color: #000;
+    font-weight: bold;
+}
+.navbar-inverse {
+  background-color: #2b363d !important;
+  border-color: #2b363d;
+}
+.navbar{
+    margin:0px;
+    font-size:18px;
+}
+.carousel{
+    background: #ddd;
+}
+.carousel-inner{margin:10px 0px;}
+.edu-sys{
+    margin:10px 0 0 0;
+    background: #434;
+    padding:20px 0;
+    color:#fff; 
+}
+.foot-blk{
+    background:#222;
+    color:#fff;
+    padding:30px 0;
+    margin-top: 20px;
+}
+.foot-text{padding: 10px 0;}
+.nav-navbar
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }

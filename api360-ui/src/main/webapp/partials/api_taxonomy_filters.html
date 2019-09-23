@@ -1,0 +1,136 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden; " ng-init="APITaxonomyloadComboBox()"  ng-controller="APITaxonomyFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	   
+		  	   
+		  	   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12" style="display: none;">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+		  	   <div ng-dropdown-multiselect='' 
+					options='bundleAPITaxonomyData' 
+					button-label='Bundles'
+					selected-model='bundleAPITaxonomyModel' 
+					extra-settings='bundleAPITaxonomySettings' 
+					translation-texts='bundleAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiAPITaxonomyData' 
+					button-label='APIs'
+					selected-model='apiAPITaxonomyModel' 
+					extra-settings='apiAPITaxonomySettings' 
+					translation-texts='apiAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group  spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="funlevel1">Functional Model(Level1):</label>
+			    <div ng-dropdown-multiselect='' 
+					options='funlevel1APITaxonomyData' 
+					button-label='FunctionalModelLevel1'
+					selected-model='funlevel1APITaxonomyModel' 
+					extra-settings='funlevel1APITaxonomySettings' 
+					translation-texts='funlevel1APITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer  col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="funlevel2">Functional Model(Level2):</label>
+			    <div ng-dropdown-multiselect='' 
+					options='funlevel2APITaxonomyData' 
+					button-label='FunctionalModelLevel2'
+					selected-model='funlevel2APITaxonomyModel' 
+					extra-settings='funlevel2APITaxonomySettings' 
+					translation-texts='funlevel2APITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group  spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="funlevel3">Functional Model(Level3):</label>
+			    <div ng-dropdown-multiselect='' 
+					options='funlevel3APITaxonomyData' 
+					button-label='FunctionalModelLevel3'
+					selected-model='funlevel3APITaxonomyModel' 
+					extra-settings='funlevel3APITaxonomySettings' 
+					translation-texts='funlevel3APITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			 <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="funlevel4">Functional Model(Level4):</label>
+			    <div ng-dropdown-multiselect='' 
+					options='funlevel4APITaxonomyData' 
+					button-label='FunctionalModelLevel4'
+					selected-model='funlevel4APITaxonomyModel' 
+					extra-settings='funlevel4APITaxonomySettings' 
+					translation-texts='funlevel4APITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="lbgupss">LBGUPS:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='lbgupsAPITaxonomyData' 
+					button-label='LBGUPS'
+					selected-model='lbgupsAPITaxonomyModel' 
+					extra-settings='lbgupsAPITaxonomySettings' 
+					translation-texts='lbgupsAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="domains">Domains:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='domainAPITaxonomyData' 
+					button-label='Domains'
+					selected-model='domainAPITaxonomyModel' 
+					extra-settings='domainAPITaxonomySettings' 
+					translation-texts='domainAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			 
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="businesstrackes">Business Tracks:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='businesstrackesAPITaxonomyData' 
+					button-label='BusinessTracks'
+					selected-model='businesstrackesAPITaxonomyModel' 
+					extra-settings='businesstrackesAPITaxonomySettings' 
+					translation-texts='businesstrackesAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="businessnames">Business Names :</label>
+			    <div ng-dropdown-multiselect='' 
+					options='businessnameAPITaxonomyData' 
+					button-label='BusinessNames'
+					selected-model='businessnameAPITaxonomyModel' 
+					extra-settings='businessnameAPITaxonomySettings' 
+					translation-texts='businessnameAPITaxonomyCustomTexts'
+					></div>	
+			  </div>
+			 
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+			  	
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitAPITaxonomySearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+				
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetAPITaxonomyFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

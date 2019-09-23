@@ -1,0 +1,54 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadAPIArtifactComboBox()"  ng-controller="APIArtifactFilterCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+			   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleAPIArtifactData' 
+					button-label='Bundles'
+					selected-model='bundleAPIArtifactModel' 
+					extra-settings='bundleAPIArtifactSettings' 
+					translation-texts='bundleAPIArtifactCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiAPIArtifactData' 
+					button-label='APIs'
+					selected-model='apiAPIArtifactModel' 
+					extra-settings='apiAPIArtifactSettings' 
+					translation-texts='apiAPIArtifactCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="backends">Version:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='versionAPIArtifactData' 
+					button-label='Versions'
+					selected-model='versionAPIArtifactModel' 
+					extra-settings='versionAPIArtifactSettings' 
+					translation-texts='versionAPIArtifactCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitAPIArtifactSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetAPIArtifactFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

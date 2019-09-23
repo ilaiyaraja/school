@@ -1,0 +1,59 @@
+ 
+ 
+ 
+ <div id='left' class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="width: 500px;overflow: scroll;">
+ 
+	  <form class="form" role="form" style="margin-left: 10px;" ng-controller="TransactionTraceCtrl" ng-init="initCtrl()">
+	      
+		  	<div class="form-group" ng-class="{hidden:programviewerDropDown}">
+		  		<label class="radio-inline"><input type="radio" class="trace_radio" value="image_trace" ng-model="trace_radio_model" ng-click="onRadioButtonClick()">Image Trace</label>
+				<label class="radio-inline"><input type="radio" class="trace_radio"  value="text_trace" ng-model="trace_radio_model" ng-click="onRadioButtonClick()">Text Trace</label>
+			</div>
+			
+			<div class="form-group">
+				<span class="label label-warning">{{no_record_found}}</span>
+			</div>		  
+	  			  
+		   <div class="form-group"  ng-class="{hidden:programviewerDropDown}" >
+		   		  <input style="width: 95%;" id="conversation_id"
+			      		type="text" class="form-control radio-inline" 
+			      		ng-enter="onEnterConversationId()"
+			      		ng-model="conversation_id" placeholder="Enter ConversationId and Press Enter">
+			      		
+			      <label class="list-inline" style="padding-left: 5px;">
+					<a ng-href="" ng-click="downloadLog()" title="Download Splunk Log"><i alt="Download Splunk Log" class="cursor glyphicon glyphicon-download"></i></a>
+				</label>
+			      		
+			      <!--  
+				<label class="list-inline" style="padding-left: 5px;">
+					<a ng-href="" ng-click="onChangeConvIdText()" title="Search Conversation Detail"><i alt="Search Conversation Detail" class="cursor glyphicon glyphicon-search"></i></a>
+				</label>
+				<label class="list-inline" style="padding-left: 5px;"><a ng-href="" ng-click="clearConvIdSearchDialog()" title="Clear Conversation Id"><i alt="Search Conversation Id" class="cursor glyphicon glyphicon-remove"></i></a></label>
+				-->				
+		   </div>
+		   	   		
+			<div class="form-group" style="width: 95%;height: 300px;" ui-grid="gridOptions" class="grid" ui-grid-cellNav ui-grid-selection ui-grid-resize-columns external-scopes="$scope"></div>
+			
+			<div class="form-group">
+		    	<label for="conv_id">API Versions:</label>
+		    	<div style="width: 95%;" ng-dropdown-multiselect-new="" options="versionsdata"  selected-model="selected_versionsmodel" translation-texts="apiTraceVersionTexts" extra-settings="apiTraceVersionsettings" events="traceEvents"></div>
+			 </div>
+			 
+			<div class="form-group" ng-class="{hidden:programviewerDropDown}">
+		   		<label class="list-inline control-label">Pick Sample Conversation Id:</label>
+				<label class="list-inline" style="padding-left: 5px;">
+					<a ng-href="" ng-click="showConvIdSearchDialog()" title="Pick Sample Conversation Id"><i alt="Pick Sample Conversation Id" class="cursor glyphicon glyphicon-search"></i></a>
+				</label>				
+		   </div>
+		   
+		    <div class="form-group">
+		   		<label class="list-inline control-label">Reload All APIs:</label>
+				<label class="list-inline" style="padding-left: 5px;">
+					<a ng-href="" ng-click="clearConvIdSearchDialog()" title="This will load all CSI APIs"><i alt="This will load all CSI APIs" class="cursor glyphicon glyphicon-refresh"></i></a>
+				</label>				
+		   </div>
+		   
+		   
+			 		   
+		</form>
+ </div>

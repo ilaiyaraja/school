@@ -1,0 +1,86 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden; " ng-init="loadFunctionalTestResultComboBox()"  ng-controller="FunctionTestResultFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+			   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">API's:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apifunctionTestResultData' 
+					button-label='APIs'
+					selected-model='apifunctionTestResultModel' 
+					extra-settings='apifunctionTestResultSettings' 
+					translation-texts='apifunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundle">Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundlefunctionTestResultData' 
+					button-label='Bundles'
+					selected-model='bundlefunctionTestResultModel' 
+					extra-settings='bundlefunctionTestResultSettings' 
+					translation-texts='bundlefunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">Backends:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='backendfunctionTestResultData' 
+					button-label='Backends'
+					selected-model='backendfunctionTestResultModel' 
+					extra-settings='backendfunctionTestResultSettings' 
+					translation-texts='backendfunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">PMT:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='pmtfunctionTestResultData' 
+					button-label='PMTs'
+					selected-model='pmtfunctionTestResultModel' 
+					extra-settings='pmtfunctionTestResultSettings' 
+					translation-texts='pmtfunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">PID:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='pidfunctionTestResultData' 
+					button-label='PIDs'
+					selected-model='pidfunctionTestResultModel' 
+					extra-settings='pidfunctionTestResultSettings' 
+					translation-texts='pidfunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">Release:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='releasefunctionTestResultData' 
+					button-label='Release'
+					selected-model='releasefunctionTestResultModel' 
+					extra-settings='releasefunctionTestResultSettings' 
+					translation-texts='releasefunctionTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitFunctionalTestResultSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetFunctionalTestResultFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

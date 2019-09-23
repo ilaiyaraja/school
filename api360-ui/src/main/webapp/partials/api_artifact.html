@@ -1,0 +1,58 @@
+
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+	
+	.hidden 
+	{
+    	display:none;
+	}
+
+</style>
+
+
+<div id='apiartifactfilterid' ng-include="'partials/api_artifact_filters.html'"></div>
+
+<div id='right'>
+	         	<div class="list-inline hidden-sm hidden-sx hidden-md" style="padding-left: 5px;z-index: 100;position:fixed;">
+				    <a ng-href="" ng-click="apiartifactShowHide();apiartifactShowHideFilter=!apiartifactShowHideFilter" title="Hide/Show Filters">
+					  <i alt="Hide/Show Filters"ng-class="apiartifactShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+				    </a>
+			       </div>	
+	         		
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<b><i>{{gridHeaderMessages}}</i></b>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+									<table class="table table-striped table-bordered table-hover display" id="apiartifactGridID">
+										<thead>
+											<tr>
+												<th>APIs</th>
+												<th>Bundle</th>	
+												<th>Version</th>
+												<th>XPDL</th>
+												<th>AID</th>
+												<th>XSDRequest/Response</th>									
+											</tr>
+										</thead>										
+									</table>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+</div>					

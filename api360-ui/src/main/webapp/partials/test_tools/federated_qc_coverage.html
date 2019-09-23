@@ -1,0 +1,153 @@
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+	 .dataTables_scrollBody{
+	height:380px !important;
+	
+	}
+	.dataTables_scrollBody{
+		margin-left: -2px;
+	}
+	
+	.features-table td{
+		    border-bottom: 0px solid #cdcdcd ;
+		    box-shadow: 0 1px 0 white;
+		    cursor: pointer;
+		    height: 4px !important;
+		    line-height: 500px;
+		    width: 3px;
+		    padding: 0 100px;
+		    text-align: center;
+		    white-space: nowrap;
+		}
+	table.dataTable tbody th, table.dataTable tbody td {
+	    padding: 2px 4px;
+	}
+	table td {
+	    background: -moz-linear-gradient(center top , #fbfbfb, #fafafa) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	    border-bottom: 0 solid #e0e0e0;
+	    border-left: 1px solid #e0e0e0;
+	    border-top: 0 solid #ffffff;
+	    padding: 18px;
+	}
+	.apiHeading {
+	    
+	    border-top: 2px solid;
+	}
+	
+	table.dataTable tbody .apiHeading td{
+	    background: #585858; /* blue color*/
+	    color: white;
+	}
+	table.dataTable tbody .versionRow td{
+	    background: #e5e5e5; /* gray color*/
+	    color: #000000;
+	}
+	
+	 
+	.apiHeading td{
+	    border-top: 2px solid #000000;
+	}
+	  
+	.rightAlignment{
+		text-align: right;
+	}
+ 
+	.dataTables_wrapper .dataTables_paginate .paginate_button {
+		 
+		 padding: 0em; 
+		/* margin-left: 2px; */
+		 
+	}
+	#qcCodeCoverageGridID_processing{
+ 		 display:none;
+	}
+	
+	.actsNotTested {
+	width: 100px;
+	}
+	
+	.percentTested {
+	width: 180px;
+	}
+	 
+.highlight{
+   text-decoration:underline;
+   color:blue !important;
+   }
+  .highlight:hover{
+   cursor:pointer;
+  }
+  .duplicateApi, .maxPatch,.verName{
+  	display:none;
+  }
+  .panel {
+    background-color: #fff;
+    border: 1px solid #337ab7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3px;
+}
+ 
+  
+</style>
+
+
+<div id='left' ng-include="'partials/federated_qc_coverage_filters.html'"></div>
+
+<!-- 
+ <label class="list-inline hidden-sm hidden-sx hidden-md" style="padding-left: 5px;z-index: 100;position:fixed;">
+				<a ng-href="" ng-click="execDashboardShowHide();execDashboardShowHideFilter=!execDashboardShowHideFilter" title="Hide/Show Filters">
+					<i alt="Hide/Show Filters" ng-class="execDashboardShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+				</a>
+			</label> -->
+<div id='right'>
+	  
+
+
+
+	<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+	  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>			      
+	  <a class="navbar-brand" href="#">Search Filters</a>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b><i>{{gridHeaderMessages}} </i></b>
+				
+			</div>
+			
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="features-table" id="qcCodeCoverageGridID">
+						<thead>
+							<tr>
+								<th >API Name</th>
+								<th class="version">Version</th>
+								<th class="client">Client</th>	
+								<th  class="cluster">Cluster</th>									
+								<th  class="actsCoded">Total Activities Coded</th>
+								<th  class="actsTested">Activities Tested</th>
+								<th  class="actsNotTested">Activities Not Tested</th>
+								<th  class="percentTested">% Tested</th>
+								<th  class="duplicateApi">API</th>
+								<th  class="maxPatch">Max Patch</th>
+								<th  class="verName">Full Version/th>																				
+							</tr>
+						</thead>	
+						 <tbody></tbody>								
+					</table>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>		
+			

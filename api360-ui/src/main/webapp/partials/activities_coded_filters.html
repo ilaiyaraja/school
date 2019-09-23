@@ -1,0 +1,30 @@
+
+ <div id='modelLeftContainer'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="width: 500px;overflow: scroll;">
+<div class="modal-dialog">
+
+				
+        <div class="modal-header">
+            <h5 class="modal-title"> </h5> <b> {{ modelHeading}} {{ modelApiName}}</b>
+             </br> <b> Version :</b> {{ modelVersion}}
+             <br><span ng-show="showFlag">  <b> Dates Between :</b> {{ modelStartDate}} and {{ modelEndDate}}</span>
+             <br><span ng-show="showFlag">  <b> Cluster(s) :</b> {{ modelCluster}}</span>
+             <br><span ng-show="showFlag">  <b> Client(s) : </b> {{ modelClient}}</span>
+            
+        </div>
+
+        <div class="modal-body">
+        
+        	<div class="row">
+	       		<div id='modelleft' > <!-- class="col-md-4" > -->               
+	   					<div class="form-group" style="width: 100%;height: 450px;" ui-grid="gridActivityOptions" class="grid" ui-grid-cellNav ui-grid-selection ui-grid-resize-columns external-scopes="$scope"></div>
+				</div>	
+				
+				<div id='modelright' class="col-md-8">
+				         
+			   </div> 
+			 </div>   
+			 
+		 </div>
+ </div>		
+ 
+ </div> 

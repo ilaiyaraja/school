@@ -1,0 +1,73 @@
+
+<div id='left'
+	class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="APISchemaSearchloadComboBox()"  ng-controller="APISchemaSearchFilterCtrl">
+
+	<form class="form" role="form" style="margin-left: 15px;width:95%">
+	
+	<div  class="form-group" style="width: 90%;">
+       <label class="control-label col-lg-12" for="Service"> APIs:</label>
+        <div ng-dropdown-multiselect="" 
+        button-label='APIs'
+        		options="apiSchemaServiceNameData" 
+        		selected-model="apiSchemaServiceNameModel" 
+        		extra-settings="apiSchemaServiceNameSettings" 
+        		translation-texts="apiSchemaServiceNameCustomTexts"></div>
+			 
+     </div>
+	
+	<div  class="form-group" style="width: 90%;">
+       <label class="control-label col-lg-12" for="apiVersion">Version:</label>
+		<div ng-dropdown-multiselect-new="" 
+				options="apiSchemaVersionData" 
+				selected-model="apiSchemaVersionModel" 
+				extra-settings="apiSchemaVersionSettings" 
+				translation-texts="apiSchemaVersioncustomTexts"></div>
+     </div>
+	
+		<div class="form-group" style="width: 90%;">
+		    <label class="control-label col-lg-12" for="searchSchema">Schema Type:</label>
+		    <div ng-dropdown-multiselect="" 
+					options="apiSearchSchemaScopeData" 
+					button-label="SearchSchema"
+					selected-model="apiSearchSchemaScopeModel" 
+					extra-settings="apiSearchSchemaScopeSettings" 
+					translation-texts="apiSearchSchemaScopeCustomTexts" 
+					
+					></div>	
+		</div>
+
+		<div class="form-group">
+			<input style="width: 90%;" id="keyword1" type="text"
+				class="form-control radio-inline"
+				ng-enter="onGeneralSearchTextEnter()" ng-model="keyword1"
+				placeholder="Search keyword 1">
+		</div>
+
+
+		<div class="form-group">
+			<input style="width: 90%;" id="keyword01" type="text"
+				class="form-control radio-inline"
+				ng-enter="onGeneralSearchTextEnter()" ng-model="keyword01"
+				placeholder="Search keyword 2">
+		</div>
+
+			
+		<div class="form-group">
+	  		<label class="radio-inline">
+			<input type="radio" class="trace_radio"  value="true" ng-model="type2" ng-click="onTypeRadioButtonClick()">exact match</label>
+			<label class="radio-inline">
+	  		<input type="radio" class="trace_radio" value="false" ng-model="type2" ng-click="onTypeRadioButtonClick()">contains</label>
+		</div>
+		
+		<div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+	  
+			<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitAPISchemaSearchSearch()">
+				Search <i class="glyphicon glyphicon-search"></i>
+			</button>
+			<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetAPISchemaSearchSearchFilters()">
+				Reset <i class="glyphicon glyphicon-refresh"></i>
+			</button>
+		</div>		
+
+	</form>
+</div>

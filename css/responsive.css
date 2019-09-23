@@ -1,0 +1,43 @@
+ /*****************
+ * Media Queries *
+ *****************/
+ @media screen and (max-width: 767px) {
+	/*body{background:red;}*/
+     
+ }
+ 
+ @media screen and (min-width: 768px) {
+	/*body{background:green;}*/
+.container-level1{
+        max-width: 750px;
+}
+     .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+  }
+  .navbar-nav > li.navbar-right {
+    float: right !important;
+  }
+     
+     
+ }
+ 
+ @media screen and (min-width: 992px) {
+	/*body{background:yellow;}*/
+.container-level1{
+  max-width: 970px;
+}
+     
+ }
+ 
+ @media screen and (min-width: 1200px) {
+	/*body{background:orange;}*/
+    .container-level1{
+        max-width: 1140px;
+    }
+ }
+ 

@@ -1,0 +1,154 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadComboBox()"  ng-controller="FiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	
+		  	  <div ng-class="{hidden:pidDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="pid">PID:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='pidData' 
+					button-label='PID'
+					selected-model='pidModel' 
+					extra-settings='pidSettings' 
+					translation-texts='pidCustomTexts'
+					></div>	
+			  </div>
+		  	
+		  	  <div ng-class="{hidden:releaseDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="release">Release:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='releaseData' 
+					button-label='Release'
+					selected-model='releaseModel' 
+					extra-settings='releaseSettings' 
+					translation-texts='releaseCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+		       <div ng-class="{hidden:programsDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="programs">Programs:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='programData' 
+					button-label='Programs'
+					selected-model='programModel' 
+					extra-settings='programSettings' 
+					translation-texts='programCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:clientsDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="clients">Clients:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='clientData' 
+					button-label='Clients'
+					selected-model='clientModel' 
+					extra-settings='clientSettings' 
+					translation-texts='clientCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div ng-class="{hidden:profilesDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="profiles">Profiles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='profileData' 
+					button-label='Profiles'
+					selected-model='profileModel' 
+					extra-settings='profileSettings' 
+					translation-texts='profileCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:bundlesDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleData' 
+					button-label='Bundles'
+					selected-model='bundleModel' 
+					extra-settings='bundleSettings' 
+					translation-texts='bundleCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:apisDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiData' 
+					button-label='APIs'
+					selected-model='apiModel' 
+					extra-settings='apiSettings' 
+					translation-texts='apiCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:backendsDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="backends">Backends:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='backendData' 
+					button-label='Backends'
+					selected-model='backendModel' 
+					extra-settings='backendSettings' 
+					translation-texts='backendCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div ng-class="{hidden:federatedDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="federated">Federated:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='federatedData' 
+					button-label='Federated'
+					selected-model='federatedModel' 
+					extra-settings='federatedSettings' 
+					translation-texts='federatedCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:apitoapiDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apitoapi">API to API:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apitoapiData' 
+					button-label='ApiToApi'
+					selected-model='apitoapiModel' 
+					extra-settings='apitoapiSettings' 
+					translation-texts='apitoapiCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div ng-class="{hidden:subProcessDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="subprocess">SubProcess:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='subprocessData' 
+					button-label='SubProcess'
+					selected-model='subprocessModel' 
+					extra-settings='subProcessSettings' 
+					translation-texts='subProcessCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div ng-class="{hidden:environmentsDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12" style="display: none">
+			    <label class="control-label col-lg-12" for="environments">Environments:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='environmentData' 
+					button-label='Environments'
+					selected-model='environmentModel' 
+					extra-settings='environmentSettings' 
+					translation-texts='environmentCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

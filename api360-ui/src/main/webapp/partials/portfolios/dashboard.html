@@ -1,0 +1,321 @@
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+
+</style>
+
+<div id='execDashboardFilterId' ng-include="'partials/execdashboardfilters.html'"></div>
+
+<div id='right'>
+	         		
+	         <label class="list-inline hidden-sm hidden-sx hidden-md" style="padding-left: 5px;z-index: 100;position:fixed;">
+				<a ng-href="" ng-click="execDashboardShowHide();execDashboardShowHideFilter=!execDashboardShowHideFilter" title="Hide/Show Filters">
+					<i alt="Hide/Show Filters" ng-class="execDashboardShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+				</a>
+			</label>
+			
+        	<div class="navbar navbar-default hidden-lg">
+		      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>			      
+		      <a class="navbar-brand" href="#">Search Filters</a>
+		   </div>
+	         
+<!--  <div ng-include="'partials/portfolios/dashboard_menu.html'"></div>-->
+	         
+<div id="dashboard"  class="container-fluid">
+
+	<div class="row">	
+	
+	<div class="col-lg-12 col-xs-12">
+		  <div class="panel panel-primary">
+		  
+		    <div class="panel-heading">
+		    		
+		    		<div style="color:white;"> 
+		    					        	
+			        	 <span class="pull-left">
+			        	 
+			        	 	<span>API360 View</span>
+			        	 	<span>
+			        	 		<button type="button" class="btn btn-default" ng-class="{'btn-default':isActivePROD,  'btn-success':!isActivePROD}" ng-click="reload('PROD')">SHOW PRODUCTION</button>
+			        	 	</span>
+			        	 	<span>
+								<button type="button" class="btn btn-default" ng-class="{'btn-default':isActiveQC,   'btn-success':!isActiveQC}" ng-click="reload('QC')">SHOW TESTING</button>
+							</span>
+							
+		        		</span>	
+		        			        	
+			        	<span class="pull-right" ng-click="show360View=!show360View"><i ng-class="show360View == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+			        </div>
+			        
+			        <div class="clearfix"></div>					      
+		    </div>
+		    <div ng-class="{hidden:!show360View,chaldean:show360View}">
+		    
+		    
+		    
+		    <div class="panel-body">
+		     		<div class="row">
+		     		
+		    
+		<div class="col-lg-3 col-md-6 col-xs-12">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-tasks fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">{{$parent.total_programs}}</div>
+							<div>Programs</div>
+						</div>
+					</div>
+				</div>
+				<a ng-click="showProgramView=!showProgramView"> 
+					<div class="panel-footer">
+			        	<span class="pull-left">View Program Details</span>
+			        	<span class="pull-right"><i ng-class="showProgramView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+			        	<div class="clearfix"></div>
+			        	</div>
+			    </a>
+			</div>
+			
+			<div ng-class="{hidden:!showProgramView,chaldean:showProgramView}">
+			  <div class="panel panel-green">
+			    <div class="panel-heading">
+				        <span class="pull-left">Program View</span>				        				        
+				        <span class="pull-right cursor spacer_left" title="Reset"><i class="glyphicon glyphicon-repeat" ng-click="ReLoadDashboardFromViewResetComboBox('Programs','All')"></i></span>
+				        <!--  <span class="pull-right cursor spacer_left" title="Search"><i class="glyphicon glyphicon-search" ng-click="submitDashboardSearch()"></i></span>-->
+				        <div class="clearfix"></div>					      
+			    </div>
+			      <div class="panel-body">		
+						<table class="table table-striped table-bordered table-hover display" id="programViewGridId">
+							<thead>
+								<tr></tr>
+							</thead>
+						</table>
+			      </div>
+			    </div>
+			</div>			
+		</div>
+		
+		
+		
+		
+		<div class="col-lg-3 col-md-6 col-xs-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-users fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">{{$parent.total_clients}}</div>
+							<div>Clients</div>
+						</div>
+					</div>
+				</div>
+				 
+				<a ng-click="showClientView=!showClientView"> 
+					<div class="panel-footer">
+						<span class="pull-left">View Clients Details</span> 
+						<span class="pull-right"><i ng-class="showClientView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+			
+			<div ng-class="{hidden:!showClientView,chaldean:showClientView}">
+			  <div class="panel panel-primary">
+			    <div class="panel-heading">
+		    		<span class="pull-left">Client View</span>
+		    		<span class="pull-right cursor spacer_left" title="Reset"><i class="glyphicon glyphicon-repeat" ng-click="ReLoadDashboardFromViewResetComboBox('Clients','All')"></i></span>
+				        <!--  <span class="pull-right cursor spacer_left" title="Search"><i class="glyphicon glyphicon-search" ng-click="submitDashboardSearch()"></i></span>-->
+			        <div class="clearfix"></div>					      
+			    </div>
+			      <div class="panel-body">		      		
+		       			<table class="table table-striped table-bordered table-hover display" id="clientViewGridId">
+							<thead>
+								<tr>
+									
+								</tr>
+							</thead>
+						</table>
+			      </div>
+			    </div>
+			 </div>
+		</div>
+		
+		
+		
+		
+		<div class="col-lg-3 col-md-6 col-xs-12">
+			<div class="panel panel-yellow">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-desktop fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">{{$parent.totalApis}}</div>
+							<div>API</div>
+						</div>
+					</div>
+				</div>
+				
+				<a ng-click="showAPIView=!showAPIView"> 
+	    			<div class="panel-footer">
+		        	<span class="pull-left">View API Details</span>
+		        	<span class="pull-right"><i ng-class="showAPIView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+		        	<div class="clearfix"></div>
+		        	</div>
+		        </a>
+			</div>
+			
+			<div ng-class="{hidden:!showAPIView,chaldean:showAPIView}">
+			  <div class="panel panel-yellow">
+			    <div class="panel-heading">
+			    		<span class="pull-left">APIs View</span>
+			    		<span class="pull-right cursor spacer_left" title="Reset"><i class="glyphicon glyphicon-repeat" ng-click="ReLoadDashboardFromViewResetComboBox('APIs','All')"></i></span>
+				        <!--  <span class="pull-right cursor spacer_left" title="Search"><i class="glyphicon glyphicon-search" ng-click="submitDashboardSearch()"></i></span>-->
+				        <div class="clearfix"></div>					      
+			    </div>
+			      <div class="panel-body">		
+						<table class="table table-striped table-bordered table-hover display" id="apiViewGridId">
+							<thead>
+								<tr>
+									
+								</tr>
+							</thead>
+						</table>
+			      </div>
+			    </div>
+			</div>
+			
+		</div>
+		<div class="col-lg-3 col-md-6 col-xs-12">
+			<div class="panel panel-red">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-support fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">{{$parent.total_adapters}}</div>
+							<div>Backends</div>
+						</div>
+					</div>
+				</div>
+				
+				<a ng-click="showBackendView=!showBackendView"> 
+	    			<div class="panel-footer">
+			        	<span class="pull-left">View Backend Details</span>
+			        	<span class="pull-right"><i ng-class="showBackendView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+			        	<div class="clearfix"></div>
+		        	</div>	
+		        </a>
+				
+			</div>
+			
+			
+			<div ng-class="{hidden:!showBackendView,chaldean:showAPIView}">
+				  <div class="panel panel-red">
+				    <div class="panel-heading">
+				    		<span class="pull-left">Backends View</span>
+				    		<span class="pull-right cursor spacer_left" title="Reset"><i class="glyphicon glyphicon-repeat" ng-click="ReLoadDashboardFromViewResetComboBox('Backends','All')"></i></span>
+				        	<!--  <span class="pull-right cursor spacer_left" title="Search"><i class="glyphicon glyphicon-search" ng-click="submitDashboardSearch()"></i></span>-->
+					        <div class="clearfix"></div>					      
+				    </div>
+				      <div class="panel-body">		
+							<table class="table table-striped table-bordered table-hover display" id="backendViewGridId">
+								<thead>
+									<tr>
+										
+									</tr>
+								</thead>
+							</table>
+				      </div>
+				    </div>
+			</div>
+		</div> 		
+       		</div>       		
+      </div>
+    </div>
+  </div>
+</div>
+		
+	</div>
+	
+
+
+
+<!-- Combined View Started -->
+
+	<div class="row">
+		<div class="col-lg-12 col-xs-12">
+		  <div class="panel panel-primary">
+		    <div class="panel-heading">
+		    		
+		    		<a ng-click="showCombinedView=!showCombinedView;onClickCombinedViewIcon()" style="color:white;"> 
+			        	<span class="pull-left">Combined View</span>
+			        	<span class="pull-right"><i ng-class="showCombinedView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+			        </a>
+			        <div class="clearfix"></div>					      
+		    </div>
+		    <div ng-class="{hidden:!showCombinedView,chaldean:showCombinedView}">
+		      <div class="panel-body">
+		       		<table class="table table-striped table-bordered table-hover display" id="combinedViewGridId">
+							<thead>
+								<tr>
+									<th>Programs</th>
+									<th>Clients</th>									
+									<th>APIs</th>
+									<th>Backends</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Programs</th>
+									<th>Clients</th>									
+									<th>APIs</th>
+									<th>Backends</th>
+								</tr>
+							</tfoot>
+						</table>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="row">
+	   <div class="col-lg-12">
+	      <div class="panel panel-primary">
+				<div class="panel-heading">
+							<a ng-click="showTestExecution=!showTestExecution" style="color:white;"> 
+				        	<span class="pull-left">Charts</span>
+				        	<span class="pull-right"><i ng-class="showTestExecution == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i></span>
+				             </a>
+				            <div class="clearfix"></div>
+				</div>
+				<div ng-class="{hidden:!showTestExecution,chaldean:showTestExecution}">
+				<div class="panel-body">
+					<div class="single-item" >
+					  <div><h4>API Detail</h4><div id="morris-donut-chart1" ></div></div>
+					  <div><h4>Test Execution</h4><div id="morris-area-chartDemo" ></div></div>
+				   </div>
+				</div>
+				</div>
+		</div>
+	</div>
+
+</div>
+
+</div>
+</div>

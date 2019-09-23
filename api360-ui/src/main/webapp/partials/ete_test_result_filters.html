@@ -1,0 +1,62 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden; " ng-init="loadEteTestResultComboBox()"  ng-controller="EteTestResultFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+			   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">Test Name:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='testnameEteTestResultData' 
+					button-label='Testnames'
+					selected-model='testnameEteTestResultModel' 
+					extra-settings='testnameEteTestResultSettings' 
+					translation-texts='testnameEteTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundle">Release:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='releaseEteTestResultData' 
+					button-label='Releases'
+					selected-model='releaseEteTestResultModel' 
+					extra-settings='releaseEteTestResultSettings' 
+					translation-texts='releaseEteTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">PMT:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='pmtEteTestResultData' 
+					button-label='PMTs'
+					selected-model='pmtEteTestResultModel' 
+					extra-settings='pmtEteTestResultSettings' 
+					translation-texts='pmtEteTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="api">PID:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='pidEteTestResultData' 
+					button-label='PIDs'
+					selected-model='pidEteTestResultModel' 
+					extra-settings='pidEteTestResultSettings' 
+					translation-texts='pidEteTestResultCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitEteTestResultSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetEteTestResultFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

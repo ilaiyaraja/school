@@ -1,0 +1,65 @@
+
+
+<style>
+.modal-dialog
+{
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+</style>
+
+<div class="modal-dialog">
+
+        <div class="modal-header">
+            <h3 class="modal-title">Conversation detail</h3>
+        </div>
+
+        <div class="modal-body">
+        
+                
+        	<form name="conversationForm" class="form-inline" role="form">
+        		
+        		<div class="form-group">          					
+        						<angucomplete id="apiSearchId"
+				              placeholder="Please type API Name"
+				              pause="400"
+				              selectedobject="selectedObject"
+				              localdata="apiCombo"
+				              searchfields="interfaceName"
+				              titlefield="interfaceName"
+				              minlength="1"	
+				              inputclass="form-control form-control-small"/>
+	    		</div>
+	    
+	    
+	    		
+			    <div class="form-group" style="display: none;">
+			    	<label for="mins" class="control-label">Mins</label>      
+				    <input class="form-control" id="mins" type="number" ng-model="mins" min="0" max="99">
+				 </div>
+				 
+				 <div class="form-group" style="display: none;">
+			    	<label for="rows" class="control-label">Rows</label>      
+				    <input class="form-control" id="rows" type="number" ng-model="rows" min="0" max="99">
+				 </div>
+				  
+				 
+				 <div class="form-group">
+					<button class="btn btn-info" ng-click="search()">Search</button> 
+				 </div>		   
+		</form>
+		
+		<form name="conversationForm" class="form-inline" role="form">		
+				<div class="form-group col-lg-12 col-xs-12">		   		
+					<div ui-grid="convGridOptions" class="grid" ui-grid-cellNav ui-grid-selection ui-grid-resize-columns external-scopes="$scope"></div>
+			   </div>
+		</form>	
+           	
+        </div>
+
+        <div class="modal-footer">   
+        	<button class="btn btn-info" ng-click="ok()">Ok</button>         
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div> 
+</div>

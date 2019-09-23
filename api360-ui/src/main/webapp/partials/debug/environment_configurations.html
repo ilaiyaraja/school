@@ -1,0 +1,63 @@
+<style>
+
+.left_pane {
+	left: 10%;
+}
+
+.dropdown-menu{
+	min-width: 100%;
+}
+
+
+
+
+
+
+</style>
+<div id='envConfigFilterId' ng-include="'partials/environment_configuration_filters.html'"></div>
+
+<div id='right'>
+    <div class="list-inline hidden-sm hidden-sx hidden-md"
+		style="padding-left: 5px; z-index: 100; position: fixed;"> <a
+		ng-href=""
+		ng-click="environmentConfigShowHide();environmentConfigShowHideFilter=!environmentConfigShowHideFilter"
+		title="Hide/Show Filters"> <i alt="Hide/Show Filters"
+			ng-class="environmentConfigShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+	</a>
+	</div>
+	<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+		<button type="button" class="navbar-toggle" data-toggle="offcanvas"
+			data-target=".navmenu">
+			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Search Filters</a>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b><i>{{gridHeaderMessages}}</i></b>
+				<span class="pull-right"><span title="{{batchJobStatusDetail | date: 'MM/dd/yyyy hh:mm:ss a'}}">Synchronized {{batchJobStatusDetail | fromNow }}</span></span>
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				
+				<table class="cell-border table-striped" id="environmentConfigurationGridID">
+						<thead> 
+							<tr>
+								<th></th>
+								<th>Adapter</th>								
+								<th>Adapter Bundle</th>
+								<th>Impacted Service Bundle(s)</th>								
+							</tr>
+						</thead>
+					</table>
+				
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+	</div>
+</div>
+
+

@@ -1,0 +1,89 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadProjectPortfolioComboBox()"  ng-controller="ProjectPortfolioFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	
+		  	  
+		  	   <div  class="form-group col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="programs">Programs:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='programProjectPortfolioData' 
+					button-label='Programs'
+					selected-model='programProjectPortfolioModel' 
+					extra-settings='programProjectPortfolioSettings' 
+					translation-texts='programProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+		  	  
+		  	  
+		  	  
+		  	  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="pid">PID:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='pidProjectPortfolioData' 
+					button-label='PID'
+					selected-model='pidProjectPortfolioModel' 
+					extra-settings='pidProjectPortfolioSettings' 
+					translation-texts='pidProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+		  	
+		  	  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="release">Release:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='releaseProjectPortfolioData' 
+					button-label='Release'
+					selected-model='releaseProjectPortfolioModel' 
+					extra-settings='releaseProjectPortfolioSettings' 
+					translation-texts='releaseProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  
+			  <div ng-class="{hidden:bundlesDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleProjectPortfolioData' 
+					button-label='Bundles'
+					selected-model='bundleProjectPortfolioModel' 
+					extra-settings='bundleProjectPortfolioSettings' 
+					translation-texts='bundleProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiProjectPortfolioData' 
+					button-label='APIs'
+					selected-model='apiProjectPortfolioModel' 
+					extra-settings='apiProjectPortfolioSettings' 
+					translation-texts='apiProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="backends">Backends:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='backendProjectPortfolioData' 
+					button-label='Backends'
+					selected-model='backendProjectPortfolioModel' 
+					extra-settings='backendProjectPortfolioSettings' 
+					translation-texts='backendProjectPortfolioCustomTexts'
+					></div>	
+			  </div>
+			   
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitProjectPortfolioSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetProjectPortfolioFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

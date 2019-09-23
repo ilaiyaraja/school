@@ -1,0 +1,395 @@
+<style>
+.spacer {
+    margin-top: 3px;
+}
+.navmenu, .navbar-offcanvas {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    height: auto;
+    width: 320px;
+}
+
+#left {
+	float: left;
+	background-color: white;
+	height: 800px;
+}
+.customTimePicker .input-group .input-group-addon, .customTimePicker .input-group .input-group-btn, .customTimePicker.input-group .form-control {
+    width: 42px;
+} 
+
+.ng-isolate-scope .dropdown-menu {
+     
+    height: 269px!important;
+}
+table td {
+   
+    padding: 2px;
+}
+table th {
+   
+    padding: 5px 4px 10px;
+} 
+table {
+    
+    margin: 0px;
+    
+}
+.form-inline .form-control {
+   
+    width: 254px;
+}
+.customTimePicker table {
+     
+    border:none;
+    border-radius:none;
+    box-shadow: none;
+     
+    text-shadow: none;
+}
+.customTimePicker table td:first-child {
+     
+    padding-left: 2px;
+    
+}
+.customTimePicker table td {
+padding: 0px;
+}
+.buttonSpacer{
+margin-top: 10px;
+}
+
+.my-datepicker .form-control {
+     
+    
+}
+
+.my-datepicker .btn {
+    
+}
+ </style>
+ 
+ 
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" ng-init="loadQcCodeCoverageComboBox()"  ng-controller="FederatedQcCoverageFilterCtrl">               
+  
+    <form id="filters" class="form-inline" role="form">
+       
+	 <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="QcStartDate">Qc Start Date:</label>
+				<div class="input-group input-group-sm col-lg-12 my-datepicker" >
+				  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="qcStartDate" is-open="qcStartDateOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" show-weeks="false"  ng-required="true" close-text="Close" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="openQcStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</div>
+     </div>
+   
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="QCEndDate">QC End Date:</label>
+		<p class="input-group input-group-sm col-lg-12">
+				  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="qcEndDate" is-open="qcEndDateOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" show-weeks="false" ng-required="true" close-text="Close" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="openQcEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</p>
+     </div>
+    
+	
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="QCCluster">QC Cluster:</label>
+        <div ng-dropdown-multiselect="" options="qcClusterData" selected-model="qcClustermodel" extra-settings="qcClusterSettings"   translation-texts="QCcustomTexts"></div>
+				 
+				<!-- <select class="form-control" ng-model="bundle_name" ng-options="bundle as bundle.label for bundle in bundleModel" multiple></select>-->
+     </div>
+	
+	
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="api"> APIs/Adapters:</label>
+        <div ng-dropdown-multiselect="" options="apiNameData" selected-model="apiNameModel" extra-settings="apiNameSettings" translation-texts="apiNamecustomTexts"></div>
+			 
+     </div>
+	
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="Version">Version:</label>
+				<div ng-dropdown-multiselect="" options="versionData" selected-model="versionModel" extra-settings="versionSettings" translation-texts="versioncustomTexts"></div>
+     </div>
+	
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+       <label class="control-label col-lg-12" for="Client">Client:</label>
+				<div ng-dropdown-multiselect=""  options="clientData" selected-model="clientModel" extra-settings="clientSettings"  translation-texts="{buttonDefaultText: 'All'}"></div>
+     </div>
+     
+	 <div>
+	<div class="form-group spacer buttonSpacer col-sm-12 col-md-12 col-lg-12">
+			<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitQcCodeCoverageSearch()">
+				Search <i class="glyphicon glyphicon-search"></i>
+			</button>
+			<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetQcCodeCoverageFilters()">
+				Reset <i class="glyphicon glyphicon-refresh"></i>
+			</button>
+			 
+		</div>	
+	 </div>	
+	 
+	 
+	 <div class="form-group spacer buttonSpacer col-sm-12 col-md-12 col-lg-12">
+			 
+			<button type="button" id="realTimeButton" data-loading-text="Realtime Report" class="btn btn-success" autocomplete="off" ng-click="realTimeQcCoverageReport()">
+				RealTime Qc Coverage Report <i class="glyphicon glyphicon-eye-open"></i>
+			</button>
+		</div>	
+		
+		<!-- Need to enable the below feature based on requirement  -->
+	
+	<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			
+			<label class="checkbox-inline">
+			
+			<label class="control-label col-lg-12 " for="checkboxConfirm" style="margin-right: 31px;margin-left: -30px;margin-top: 2px;">Do you want to schedule report ? </label><input type="checkbox"  ng-model="checked">
+			
+			
+			</label>
+	</div>
+	
+	
+	
+	<div ng-show="checked">
+		<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+		<label class="control-label col-lg-12" for="Start Date">Start Date:</label>
+			<p class="input-group input-group-sm col-lg-12">
+				<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="StartDate" is-open="startDateOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" show-weeks="false"  ng-required="true" close-text="Close" />
+				<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</p>
+		</div>
+	 
+		<!-- <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12  " for="StartTime">Start Time:</label>
+				<p class="customTimePicker input-group input-group-sm">
+				<timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+				</p>
+		</div> -->
+		
+		<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12" >
+			<label class="control-label col-lg-12" for="Report Format">Start Time:</label>
+					<select ng-model="mytime"class="form-control col-lg-12">
+						<option>12:00 AM</option>
+						<option>12:15 AM</option>
+						<option>12:30 AM</option>
+						<option>12:45 AM</option>
+						<option>1:00 AM</option>
+						<option>1:15 AM</option>
+						<option>1:30 AM</option>
+						<option>1:45 AM</option>
+						<option>2:00 AM</option>
+						<option>2:15 AM</option>
+						<option>2:30 AM</option>
+						<option>2:45 AM</option>
+						<option>3:00 AM</option>
+						<option>3:15 AM</option>
+						<option>3:30 AM</option>
+						<option>3:45 AM</option>
+						<option>4:00 AM</option>
+						<option>4:15 AM</option>
+						<option>4:30 AM</option>
+						<option>4:45 AM</option>
+						<option>5:00 AM</option>
+						<option>5:15 AM</option>
+						<option>5:30 AM</option>
+						<option>5:45 AM</option>
+						<option>6:00 AM</option>
+						<option>6:15 AM</option>
+						<option>6:30 AM</option>
+						<option>6:45 AM</option>
+						<option>7:00 AM</option>
+						<option>7:15 AM</option>
+						<option>7:30 AM</option>
+						<option>7:45 AM</option>
+						<option>8:00 AM</option>
+						<option>8:15 AM</option>
+						<option>8:30 AM</option>
+						<option>8:45 AM</option>
+						<option>9:00 AM</option>
+						<option>9:15 AM</option>
+						<option>9:30 AM</option>
+						<option>9:45 AM</option>
+						<option>10:00 AM</option>
+						<option>10:15 AM</option>
+						<option>10:30 AM</option>
+						<option>10:45 AM</option>
+						<option>11:00 AM</option>
+						<option>11:15 AM</option>
+						<option>11:30 AM</option>
+						<option>11:45 AM</option>
+						<option>12:00 PM</option>
+						<option>12:15 PM</option>
+						<option>12:30 PM</option>
+						<option>12:45 PM</option>
+						<option>1:15 PM</option>
+						<option>1:30 PM</option>
+						<option>1:45 PM</option>
+						<option>2:00 PM</option>
+						<option>2:15 PM</option>
+						<option>2:30 PM</option>
+						<option>2:45 PM</option>
+						<option>3:00 PM</option>
+						<option>3:15 PM</option>
+						<option>3:30 PM</option>
+						<option>3:45 PM</option>
+						<option>4:00 PM</option>
+						<option>4:15 PM</option>
+						<option>4:30 PM</option>
+						<option>4:45 PM</option>
+						<option>5:00 PM</option>
+						<option>5:15 PM</option>
+						<option>5:30 PM</option>
+						<option>5:45 PM</option>
+						<option>6:00 PM</option>
+						<option>6:15 PM</option>
+						<option>6:30 PM</option>
+						<option>6:45 PM</option>
+						<option>7:00 PM</option>
+						<option>7:15 PM</option>
+						<option>7:30 PM</option>
+						<option>7:45 PM</option>
+						<option>8:00 PM</option>
+						<option>8:15 PM</option>
+						<option>8:30 PM</option>
+						<option>8:45 PM</option>
+						<option>9:00 PM</option>
+						<option>9:15 PM</option>
+						<option>9:30 PM</option>
+						<option>9:45 PM</option>
+						<option>10:00 PM</option>
+						<option>10:15 PM</option>
+						<option>10:30 PM</option>
+						<option>10:45 PM</option>
+						<option>11:00 PM</option>
+						<option>11:15 PM</option>
+						<option>11:30 PM</option>
+						<option>11:45 PM</option>
+						</select>
+		</div>
+	 
+	 <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="EndDate">End Date:</label>
+					<p class="input-group input-group-sm col-lg-12">
+					<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="EndDate" is-open="endDateOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" show-weeks="false"  ng-required="true" close-text="Close" />
+					<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+					</p>
+		</div>
+	 
+			<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+				  <label class="control-label col-lg-12" for="Report Format">Report Format:</label>
+						<select ng-model="reportFormat"class="form-control col-lg-12">
+						<option>PDF</option>
+						<option>XLS</option>
+								
+						</select>
+			</div>
+		
+		<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="Report Format">Frequency:</label>
+					<select ng-model="frequency" class="form-control col-lg-12" ng-change="frequencyChangeFn(frequency)">
+						<option>Daily</option>
+						<option>Weekly</option>
+						<option>Monthly</option>
+					</select>
+		</div>
+		
+		<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12" ng-show="weekFrequency">
+			<label class="control-label col-lg-12" for="Report Format">Week Day :</label>
+					<select ng-model="week"class="form-control col-lg-12">
+						<option>SUN</option>
+						<option>MON</option>
+						<option>TUE</option>
+						<option>WED</option>
+						<option>THU</option>
+						<option>FRI</option>
+						<option>SAT</option>
+					</select>
+		</div>
+		
+		<div  class="form-group spacer col-sm-12 col-md-12 col-lg-12" ng-show="monthFrequency">
+			<label class="control-label col-lg-12" for="Report Format">Month :</label>
+					 
+					
+					<!--  <select ng-model="month"class="form-control col-lg-12">
+					    <option  ng-repeat="item in monthArray"> {{ item }} </option> -->
+					   <select ng-model="month"  ng-init="month = options[3]" class="form-control col-lg-12">
+						<option>JAN</option>
+						<option>FEB</option>
+						<option>MAR</option>
+						<option>APR</option>
+						<option>MAY</option>
+						<option>JUN</option>
+						<option>JUL</option>
+						<option>AUG</option>
+						<option>SEP</option>
+						<option>OCT</option>
+						<option>NOV</option>
+						<option>DEC</option>
+					</select>
+		</div>
+	 
+	 
+	 <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="User">User:</label>
+					<input type="text" class="form-control col-lg-12" ng-model="userCode"
+								placeholder="" id="errorcode" />
+		</div>
+		
+	  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="EmailId">Email:</label>
+					<input type="text" class="form-control col-lg-12" ng-model="userEmail"
+								placeholder="" id="errorcode" />
+		</div>
+	 
+	 <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="scheduleReportSubmit()">
+			Schedule New Report job <i class="glyphicon glyphicon-eye-open"></i>
+			</button>
+		
+	 </div>
+	 
+	 </div>		
+	 
+	 <div class="form-group">
+	 <h4 ng-show="checked" >
+	 
+		    	<div> <i>A PDF report will be generated <b> "{{frequency}}" </div>
+		    	<div></b>from <b> "{{scheduleReportStartDate}}"</b>, and<b>"{{scheduleReportEndDate}}"</b> </div>
+		            <div>  At  <b>"{{mytime}}"</b> and will be <b>emailed </b></div>
+		    	 <div>to <b>"{{userEmail}}"</b></i></div>
+		    </div>
+		    
+<!-- 	 <h4 ng-show="checked" >A PDF report will be generated Daily 
+	 </br>from {{scheduleReportStartDate}} and {{scheduleReportEndDate}}
+     </br> At  {{mytime}} and will be emailed 
+     </br> to {{userEmail}} </h4> -->
+	
+	<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+           {{ alertMessage}}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="modelDialogok()">OK</button>
+            <button class="btn btn-warning" ng-click="modelDialogcancel()">Cancel</button>
+        </div>
+    </script>
+	
+	
+	</div> 
+   </form>
+   
+</div>     
+  
+  

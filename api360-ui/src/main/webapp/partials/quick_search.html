@@ -1,0 +1,221 @@
+
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+</style>
+
+	
+				<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="panel panel-primary">
+								<div class="panel-heading">High Level Results</div>								
+								
+									<ul class="list-group">
+					                	<li class="list-group-item" ng-repeat="n in highLevelResults | orderBy:'label'">
+					                		<a role="presentation" ng-click="showGrid(n.divid,n.label)">{{n.label}} ({{n.total}})</a>
+					                		<img ng-attr-id="{{n.loadingid}}" class="att-globe" src="images/spinner.gif" height="15px" width="15px" style="display:none;">
+					                	</li>
+				            		</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-10 col-md-10 col-xs-10 col-sm-10">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="panel panel-primary">
+								<div class="panel-heading">Result {{resultHeader}}</div>
+								<div class="panel-body">
+								
+									<div id="apiportfoliogriddivid">
+										<table class="table table-striped table-bordered table-hover display" id="apiportfoliogridid">
+											<thead>
+												<tr>
+													<th>API</th>
+													<th>APIToAPI</th>																								
+													<th>SubProcess</th>	
+													<th>Bundle</th>
+													<th>Version/Environment</th>	
+													<th>Backend</th>									
+													<th>Federation</th>
+													<th>Program</th>
+													<th>Client</th>
+													<th>Profile</th>	
+													<th>JMSProvider</th>																						
+												</tr>
+											</thead>										
+										</table>
+									</div>
+									
+									<div id="apisearchgriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="apisearchgridid">
+											<thead>
+												<tr>
+													<th>BundleName</th>
+													<th>BundleVersion</th>																								
+													<th>API</th>	
+													<th>SubProcess</th>
+													<th>Adapter</th>	
+													<th>AdapterMethod</th>									
+													<th>AdapterBundle</th>
+													<th>AdapterBundleVersion</th>															
+												</tr>
+											</thead>										
+										</table>
+									</div>
+									
+									
+									<div id="adapterinventorygriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="adapterinventoryquicksearchgridid">
+											<thead>
+												<tr>
+													<th>Adapter</th>
+													<th>AdapterBundle</th>	
+													<th>AdapterMethod</th>
+													<th>API(s)Using</th>									
+													<th>AdapterBundleVersion</th>														
+												</tr>
+											</thead>										
+										</table>
+									</div>
+									
+									
+									<div id="projectportfoliogriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="projectportfoliogridid">
+											<thead>
+												<tr>
+												<th>PID</th>
+												<th>Release</th>	
+												<th>ServiceBundle</th>
+												<th>ServiceBundleVersion</th>	
+												<th>API</th>									
+												<th>AdapterBundle</th>
+												<th>Backend</th>
+												<th>Program</th>																
+											</tr>
+											</thead>										
+										</table>
+									</div>
+									
+									<div id="apitaxonomygriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="apitaxonomygridid">
+											<thead>
+												<tr>
+													<th>API</th>
+													<th>Domain</th>	
+													<th>LBGUPS</th>
+													<th>BusinessTrack</th>	
+													<th>BusinessName</th>
+													<th>FunctionalModel</th>
+													<th>FunctionalModelPath</th>
+													<th>Description</th>
+												</tr>
+											</thead>										
+										</table>
+									</div>
+									
+									<div id="defectgriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="defectgridid">
+											<thead>
+												<tr>
+													<th></th>
+													<th>DefectID</th>
+													<th>DefectStatus</th>
+													<th>AssignedToAPP</th>
+													<th>AssignedToTeam</th>
+													<th>PMT</th>
+													<th>PID</th>
+													<th>DetectionDate</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+									
+									<div id="bundleversiongriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="bundleversiongridid">
+											<thead>
+												<tr>
+													<th>Environment</th>
+													<th>Bundle</th>
+													<th>Version</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+									
+									<div id="discoveryapigriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="discoveryapigridid">
+											<thead>
+												<tr>
+													<th>API Name</th>
+													<th>Schema Type</th>
+													<th>Element Name</th>
+													<th>CDM Ref</th>
+												</tr>
+											</thead>
+										</table>
+									</div> 
+									<div id="environmentconfiggriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="environmentconfiggridid">
+												<thead> 
+													<tr>
+														<th></th>
+														<th>Adapter</th>								
+														<th>Adapter Bundle</th>
+														<th>Impacted Service Bundle(s)</th>								
+													</tr>
+												</thead>
+											</table>
+		                          	</div>
+		                          	
+		                          	
+		                          			<div id="functionaltestresultgriddivid" style="display: none;">
+												<table class="table table-striped table-bordered table-hover display" id="functionaltestresultgridid">
+													<thead>
+														 <tr>
+														 <th>APIs</th>
+														 <th>Backends</th>
+														 <th>Bundles</th>
+														 <th>PMT</th>
+														 <th>PID</th>
+														 <th>Release</th>
+														 <th>#TotalTC's</th>
+														 <th>#PassedTC's</th>
+														 <th>#FailedTC's</th>
+														 <th>Passed%</th>
+														 <th></th>
+														 
+														</tr>
+													</thead>
+												</table>
+			                                 </div>
+			                                 
+		                          		<div id="etetestresultgriddivid" style="display: none;">
+										<table class="table table-striped table-bordered table-hover display" id="etetestresultgridid">
+												<thead> 
+													<tr>
+														 <th>Track Name</th>
+														 <th>Release</th>
+														 <th>PMT</th>
+														 <th>PID</th>
+														 <th>#TotalSteps</th>
+														 <th>#StepsPassed</th>
+														 <th>%Complete</th>								
+													</tr>
+												</thead>
+											</table>
+		                          		</div>
+		                          	
+		                          	
+		                          	
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>

@@ -1,0 +1,34 @@
+<style>
+.modal-dialog
+{
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+</style>
+<div id='left' ng-include="'partials/activities_coded_filters.html'"></div>
+				
+<div id='right'>
+		
+
+				 <label class="list-inline hidden-sm hidden-sx hidden-md" style="padding-left: 5px;z-index: 100;position:fixed;">
+						<a ng-href="" ng-click="showHideFilterInModel();transationTraceShowHideFilter=!transationTraceShowHideFilter" title="Hide/Show Filters">
+							<i alt="Hide/Show Filters" ng-class="transationTraceShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+						</a>
+				</label>		  
+				
+				 <div class="modal-footer" style="clear:both;">   
+    
+		            <button class="btn btn-warning" ng-click="cancel()">Close</button>
+		            
+		        </div>
+		        
+					<div id="transaction_trace_id">
+							<div class="col-xs-12 col-md-12 col-lg-12" style="width: 100%;min-height:647px;">
+								<div id="text_trace_id"></div>
+								<iframe frameBorder="0" class="right_transaction_trace" style="width: 100%;height:100%;min-height: 637px;" src="" id="transaction_trace_iframe" iframe-onload="iframeLoadedCallBack()"></iframe>
+							</div>
+					</div>
+				</div>
+      
+		      

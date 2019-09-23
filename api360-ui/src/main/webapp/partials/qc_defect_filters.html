@@ -1,0 +1,223 @@
+<style>
+
+
+.spacer {
+    margin-top: 3px;
+}
+.navmenu, .navbar-offcanvas {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    /*height: auto;*/
+    width: 320px;
+}
+
+/*#left {
+       float: left;
+       background-color: white;
+       height: 900px;
+}*/
+
+.customTimePicker .input-group .input-group-addon, .customTimePicker .input-group .input-group-btn, .customTimePicker.input-group .form-control {
+    width: 42px;
+} 
+
+.ng-isolate-scope .dropdown-menu {
+     
+    height: 269px!important;
+}
+table td {
+   
+    padding: 2px;
+}
+table th {
+   
+    padding: 5px 4px 10px;
+} 
+table {
+    
+    margin: 0px;
+    
+}
+.form-inline .form-control {
+   
+    width: 254px;
+}
+.customTimePicker table {
+     
+    border:none;
+    border-radius:none;
+    box-shadow: none;
+     
+    text-shadow: none;
+}
+.customTimePicker table td:first-child {
+     
+    padding-left: 2px;
+    
+}
+.customTimePicker table td {
+padding: 0px;
+}
+.buttonSpacer{
+margin-top: 10px;
+}
+
+.my-datepicker .form-control {
+     
+    
+}
+
+.my-datepicker .btn {
+    
+}
+
+input
+	{
+		text-align:center;
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+		color: #333;
+		font-weight: normal;
+		
+		
+  
+	}
+
+
+
+</style> 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden; "  ng-init="loadDefectReportComboBox()"  ng-controller="DefectReportFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+
+
+		<div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="DetectionFromDate">Detection From Date:</label>
+			<div class="input-group input-group-sm col-lg-12 my-datepicker">
+				<input type="text"  align="center" class="form-control" id="fromDate"
+					datepicker-popup="{{format}}" ng-model="detectionFromDate"
+					is-open="detectionFromOpened" min-date="2014-10-01"
+					max-date="'2015-06-22'" datepicker-options="dateOptions"
+					show-weeks="false" ng-required="true" close-text="Close"  ng-change="change()" /> <span
+					class="input-group-btn" >
+					<button type="button" class="btn btn-default"
+						ng-click="openDetectionFrom($event)">
+						<i class="glyphicon glyphicon-calendar"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+
+		<div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			<label class="control-label col-lg-12" for="DetectionToDate">Detection To Date:</label>
+			<div class="input-group input-group-sm col-lg-12 my-datepicker">
+				<input type="text"  align="center" class="form-control" id="toDate"
+					datepicker-popup="{{format}}" ng-model="detectionToDate"
+					is-open="detectionToDateOpened" min-date="minDate"
+					max-date="'2015-06-22'" datepicker-options="dateOptions"
+					show-weeks="false" ng-required="true" close-text="Close"  ng-change="change()" /> <span
+					class="input-group-btn">
+					<button type="button" class="btn btn-default"
+						ng-click="openDetectionToDate($event)">
+						<i class="glyphicon glyphicon-calendar"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+
+
+		
+		  	  
+		  	  
+		  	  
+		  	  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="defectstatus">Defect Status:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='defectstatusQCReportData' 
+					button-label='DefectStatus'
+					selected-model='defectstatusQCReportModel' 
+					extra-settings='defectstatusQCReportSettings' 
+					translation-texts='defectstatusQCReportCustomTexts'
+					></div>	
+			  </div>
+		  	
+		  	   <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="asstoapps">Assigned To APP:</label>
+			     <div ng-dropdown-multiselect='' 
+					options='defectreportasstoappData' 
+					button-label='AssignedToAPP'
+					selected-model='defectreportasstoappModel' 
+					extra-settings='defectreportasstoappSettings' 
+					translation-texts='defectreportasstoappCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  
+			  <div ng-class="{hidden:bundlesDropDown}" class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="asstoteams">Assigned To Team:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='defectreportasstoteamData' 
+					button-label='AssignedToTeam'
+					selected-model='defectreportasstoteamModel' 
+					extra-settings='defectreportasstoteamSettings' 
+					translation-texts='defectreportasstoteamCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="pmts">PMT:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='defectreportpmtData' 
+					button-label='PMT'
+					selected-model='defectreportpmtModel' 
+					extra-settings='defectreportpmtSettings' 
+					translation-texts='defectreportpmtCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="pmts">PID:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='defectreportpidData' 
+					button-label='PID'
+					selected-model='defectreportpidModel' 
+					extra-settings='defectreportpidSettings' 
+					translation-texts='defectreportpidCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="releases">Release Date:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='defectreportreleaseData' 
+					button-label='Release'
+					selected-model='defectreportreleaseModel' 
+					extra-settings='defectreportreleaseSettings' 
+					translation-texts='defectreportreleaseCustomTexts'
+					></div>	
+			  </div>
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="severity">Severity:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='defectreportseverityData' 
+					button-label='Severity'
+					selected-model='defectreportseverityModel' 
+					extra-settings='defectreportseveritySettings' 
+					translation-texts='defectreportseverityCustomTexts'
+					></div>	
+			  </div>
+			   
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitDefectSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetDefectFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		

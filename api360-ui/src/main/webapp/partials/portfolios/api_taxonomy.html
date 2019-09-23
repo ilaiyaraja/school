@@ -1,0 +1,84 @@
+
+<style>
+	td
+	{
+	  vertical-align: top;
+	  text-align: left;
+	}
+	
+	.hidden 
+	{
+    	display:none;
+	}
+	
+	
+	
+			
+			/*Body*/
+			.features-table tbody td {
+			  text-align: left;
+			  font: normal 12px Verdana, Arial, Helvetica;
+			}
+			
+			
+		.desc{
+		
+	
+ 		 white-space:pre-wrap ;
+		
+		
+		}
+		
+		
+		
+			
+			
+	
+	
+
+</style>
+
+
+
+<div id='apiTaxonomyFilterId' ng-include="'partials/api_taxonomy_filters.html'"></div>
+
+<div id='right'>
+	         		 <div class="list-inline hidden-sm hidden-sx" style="padding-left: 5px;z-index: 100;">
+							<a ng-href="" ng-click="apiTaxonomayShowHide();apiTaxonomayShowHideFilter=!apiTaxonomayShowHideFilter" title="Hide/Show Filters">
+								<i alt="Hide/Show Filters" ng-class="apiTaxonomayShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+							</a>
+			        </div>
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+				           
+			
+        	
+
+
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderAPITaxonomyGrid()">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<b><i>{{gridHeaderMessages}}</i></b>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<div >
+									<table class="cell-border table-striped" id="apitaxonomygrid">
+										<thead>
+											<tr>
+											</tr>
+										</thead>										
+									</table>
+								</div>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+</div>					

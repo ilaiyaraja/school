@@ -1,0 +1,21 @@
+
+
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" 
+	         					ng-include="'partials/filters.html'" 
+	         					ng-init="loadComboBox()" 
+	         					ng-controller="FiltersCtrl"></div>
+	         	
+	         <div id='right'>
+	         		
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+			   
+			   
+	         		<div ng-view=""></div>
+	   		</div>

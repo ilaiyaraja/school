@@ -1,0 +1,253 @@
+	<!-- Do not delete below line: This code helped to display worning on IE8 -->	
+	<!--[if lte IE 8 ]>
+	  <meta http-equiv="refresh" content="0;url=/api360-ui/unsupportedbrowser.html"/>		
+    <![endif]-->
+    
+    
+<!DOCTYPE html>
+
+
+<html lang="en" ng-app="testdata-app">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/global.png">
+
+    <title>API360</title>
+
+    
+   <!-- bootstrap css and plugins -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    
+    <!-- DataTables CSS -->
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/jquery.dataTables.css" rel="stylesheet">
+    
+    <link href="css/dataTables.tableTools.css" rel="stylesheet">
+    <link href="css/dataTables.fixedColumns.css" rel="stylesheet">
+    
+    
+    <link href="css/loading-bar.css" rel="stylesheet">
+    <link href="css/jasny-bootstrap.css" rel="stylesheet">
+    <link href="css/navmenu.css" rel="stylesheet">
+    <link href="css/dialogs.css" rel="stylesheet">
+    
+    <!-- <link rel="stylesheet" href="lib/jquery-ui-1.11.3/jquery-ui.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.3.custom/jquery-ui.theme.css"> -->
+    
+    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.jqplot.css" rel="stylesheet">
+        
+    <link href="css/carousel/slick.css" rel="stylesheet">    
+    <link href="css/api360_custom_style.css" rel="stylesheet"> 
+    <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="css/angucomplete.css" rel="stylesheet" type="text/css" />
+    
+    <link href="css/ui-grid.css" rel="stylesheet">
+    <link href="css/ui-grid-stable.css" rel="stylesheet">
+    <link href="css/ui-grid-unstable.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="spacer col-sm-6 col-md-6 col-lg-12 col-lg-12" id="spinner" style="display:none;">
+	   	<img class="img-responsive"  ng-src="images/page_loading.gif">
+</div>
+
+
+<div ng-controller="dialogCtrl" style="display:none;">
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-danger" ng-click="launch('error')">Error Dialog</button>
+			<button class="btn btn-primary" ng-click="launch('wait')">Wait Dialog</button>
+			<button class="btn btn-primary" ng-click="launch('customwait')">"Custom" Wait Dialog</button>
+			<button class="btn btn-default" ng-click="launch('notify')">Notify Dialog</button>
+			<button class="btn btn-success" ng-click="launch('confirm')">Confirm Dialog</button>        		
+		</div>
+	</div>
+</div>
+
+	
+	<div ng-controller="AuthenticateCtrl" ng-include="getInclude()" style="width: 100%;height: 100%"></div>
+
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-cookies.js"></script>
+    
+    <!--  <script src="lib/angular.min.js"></script>-->
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+    
+ 	<!-- jQuery Include and Bootstrap -->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery-ui-1.11.3/jquery-ui.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="lib/angular-sanitize.js"></script>
+    <script type="text/javascript" src="lib/angular-touch.min.js"></script>
+    <script type="text/javascript" src="lib/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/lodash.min.js"></script>    
+    <script type="text/javascript" src="lib/angular-highlightjs.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls.js"></script> 
+    
+    
+    <script src="lib/angular-vs-repeat.js"></script>
+       
+    <script src="lib/angularjs-dropdown-multiselect.js"></script>
+    <script src="lib/angularjs-dropdown-multiselect-new.js"></script>
+       <script src="lib/angularjs-dropdown-multiselect-old.js"></script>
+    
+    <script src="lib/moment.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="lib/jquery.dataTables.js"></script>    
+    <script src="lib/dataTables.bootstrap.js"></script>
+    <script src="lib/dataTables.tableTools.js"></script>
+    <script src="lib/dataTables.fixedColumns.js"></script>
+    
+    <script src="lib/jquery.highlight.js"></script>
+    <script src="lib/dataTables.searchHighlight.min.js"></script>
+    
+	<script src="lib/loading-bar.js"></script>
+	<script src="lib/jasny-bootstrap.js"></script>
+	
+	<script src="lib/dialogs.js"></script>
+	<script src="lib/dialogs-controllers.js"></script>
+	<script src="lib/dialogs-default-translations.js"></script>
+	<script src="lib/dialogs-main.js"></script>
+	<script src="lib/dialogs-services.js"></script>
+	<script src="lib/translate-substitution.js"></script>
+	
+	<script src="lib/ui-grid.js"></script>
+	<script src="lib/ui-grid-stable.js"></script>
+	<script src="lib/ui-grid-unstable.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+    <script src="lib/plugins/morris/raphael.min.js"></script>
+    <script src="lib/plugins/morris/morris.min.js"></script>
+    
+    <!-- Chart -->
+	<script type="text/javascript" src="lib/excanvas.js"></script>
+	<script type="text/javascript" src="lib/jquery.jqplot.js"></script>
+	<script type="text/javascript" src="lib/jqplot.pieRenderer.min.js"></script>
+    <script type="text/javascript" src="lib/jqplot.donutRenderer.min.js"></script>    
+    <script type="text/javascript" src="lib/jquery.dataTables.columnFilter.js"></script>    
+    <script type="text/javascript" src="lib/slick.js"></script>
+    <script type="text/javascript" src="lib/modal.js"></script>
+    
+    <script type="text/javascript" src="lib/angucomplete.js"></script>
+	
+	<script type="text/javascript" src="lib/spinner.js"></script>
+	
+     <!-- Bread and Butter -->
+    <script src="scripts/app.js"></script>      
+    <script src="scripts/route_ctrl.js"></script>
+    <script src="scripts/authcontroller.js"></script>
+    
+    <script src="scripts/exec_dashboard_filter_ctrl.js"></script>
+    <script src="scripts/api_portfolio_filter_ctrl.js"></script>
+    <script src="scripts/project_portfolio_filter_ctrl.js"></script>
+    <script src="scripts/installed_bundle_version_filter_ctrl.js"></script>
+    <script src="scripts/global_filter_ctrl.js"></script>
+    <script src="scripts/adapter_inventory_filter_ctrl.js"></script>
+     
+    
+    <script src="scripts/api_portfolio_ctrl.js"></script>
+    <script src="scripts/exec_dashboard_ctrl.js"></script>
+    <script src="scripts/under_construction_ctrl.js"></script>
+    <script src="scripts/bundle_version_ctrl.js"></script>
+    <script src="scripts/project_portfolio_ctrl.js"></script>
+    <script src="scripts/query_params_handler_ctrl.js"></script>
+    <script src="scripts/bug_ctrl.js"></script> 
+    <script src="scripts/adapter_inventory_ctrl.js"></script>
+    <script src="scripts/transaction_trace_ctrl.js"></script>
+    <script src="scripts/api_taxonomy_filter_ctrl.js"></script>
+	<script src="scripts/api_taxonomy_ctrl.js"></script>
+	<script src="scripts/api_search_ctrl.js"></script>
+	<script src="scripts/quick_search_ctrl.js"></script>
+	<script src="scripts/global_ctrl.js"></script>
+        
+    <script src="scripts/exec_dashboard_services.js"></script>
+    <script src="scripts/exec_dashboard_filter_service.js"></script>
+    <script src="scripts/api_portfolio_services.js"></script>
+    <script src="scripts/api_portfolio_filter_service.js"></script>
+    <script src="scripts/bundle_version_service.js"></script>
+    <script src="scripts/installed_bundle_version_filter_service.js"></script>
+    <script src="scripts/project_portfolio_filter_service.js"></script>
+    <script src="scripts/project_portfolio_service.js"></script>  
+    <script src="scripts/global_filter_service.js"></script>
+    <script src="scripts/adapter_inventory_filter_service.js"></script>
+    <script src="scripts/adapter_inventory_service.js"></script> 
+    <script src="scripts/transaction_trace_service.js"></script>
+    <script src="scripts/api_search_service.js"></script>
+    <script src="scripts/quick_search_service.js"></script>
+    <script src="scripts/global_service.js"></script>
+    
+    <script src="scripts/install_request_ctrl.js"></script>
+    <script src="scripts/cstem_engagement_ctrl.js"></script>
+
+     <script src="scripts/api_taxonomy_filter_service.js"></script>
+    <script src="scripts/api_taxonomy_service.js"></script>
+    
+	<script src="scripts/environment_configurations_ctrl.js"></script>
+	<script src="scripts/environment_configurations_service.js"></script>
+	
+	<script src="scripts/environment_configuration_filter_service.js"></script>
+	<script src="scripts/environment_configuration_filter_ctrl.js"></script>	
+	
+	<script src="scripts/qc_defect_ctrl.js"></script>
+	<script src="scripts/qc_defect_filter_ctrl.js"></script>
+	<script src="scripts/qc_defect_service.js"></script>
+    <script src="scripts/qc_defect_filter_service.js"></script>
+    
+          
+      <!-- API 360 - API search  api_schema.html -->
+      <!-- <script src="scripts/api_schema.js"></script> -->
+      <script src="scripts/api_schema_ctrl.js"></script>
+      <script src="scripts/api_schema_service.js"></script>
+      <script src="scripts/api_schema_filter_ctrl.js"></script>
+      <script src="scripts/api_schema_filter_service.js"></script>
+      <!-- API 360 - API search   -->
+      
+      
+      <script src="scripts/federated_qc_coverage_ctrl.js"></script>
+      <script src="scripts/federated_qc_coverage_filter_ctrl.js"></script>
+      <script src="scripts/federated_qc_coverage_filter_service.js"></script>
+      <script src="scripts/federated_qc_coverage_services.js"></script>
+      
+      <script src="scripts/subscriptions.js"></script>
+      
+      <script src="scripts/functional_test_result_ctrl.js"></script>
+      <script src="scripts/functional_test_result_filter_ctrl.js"></script>
+      <script src="scripts/functional_test_result_service.js"></script>
+      <script src="scripts/functional_test_result_filter_service.js"></script>
+      
+      <script src="scripts/api_resource_finder_ctrl.js"></script>
+      <script src="scripts/api_resource_finder_filter_ctrl.js"></script>
+      <script src="scripts/api_resource_finder_service.js"></script>
+      <script src="scripts/api_resource_finder_filter_service.js"></script>
+      
+      <!-- -Added By Abhimanyu For ETE Test Result -->
+      
+      <script src="scripts/ete_test_result_ctrl.js"></script>
+      <script src="scripts/ete_test_result_service.js"></script>
+      <script src="scripts/ete_test_result_filter_ctrl.js"></script>
+      <script src="scripts/ete_test_result_filter_service.js"></script>
+      
+      <script src="scripts/api_prod_hit_ctrl.js"></script>
+      <script src="scripts/api_prod_hit_filter_ctrl.js"></script>
+      <script src="scripts/api_prod_hit_service.js"></script>
+      <script src="scripts/api_prod_hit_filter_service.js"></script>
+      
+      <script src="scripts/api_artifact_ctrl.js"></script>
+      <script src="scripts/api_artifact_filter_ctrl.js"></script>
+      <script src="scripts/api_artifact_filter_service.js"></script>
+      <script src="scripts/api_artifact_services.js"></script>
+      
+    
+</body>

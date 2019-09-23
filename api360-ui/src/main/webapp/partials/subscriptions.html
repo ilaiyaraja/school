@@ -1,0 +1,213 @@
+<style>
+.left_pane {
+	left: 10%;
+}
+
+.dropdown-menu{
+	min-width: 100%;
+}
+
+.modal-title{
+	color: white;
+}
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+
+</style>
+
+<div id="left" style="width: 60%" ng-init="init()">
+
+		<div class="form-group">
+
+			<div class="col-sm-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">My Subscriptions</div>
+
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info">Backends
+							<div class="pull-right">
+								<a ng-click="showProgramView=!showProgramView"> 
+									<i ng-class="showProgramView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i>
+								</a>
+							</div>
+						</li>
+						<div ng-class="{hidden:!showProgramView,chaldean:showProgramView}">
+						<li class="list-group-item" ng-repeat="subItem in backendSubscriptions">
+								{{subItem.subscription}} ({{subItem.environment}})
+								<div class="pull-right">
+									<button type="button" class="btn btn-warning btn-xs" ng-click="removeSubscription($event, subItem)">Unsubscribe</button>
+								</div>
+						</li>
+						</div>
+						<div ng-class="{hidden:!showProgramView,chaldean:showProgramView}">
+							<li class="list-group-item" ng-if="backendSubscriptions.length <= 0">You do not have any Backend Subscription.
+						
+						</li>
+						</div>
+					</ul>
+
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info">Bundles
+							<div class="pull-right">
+								<a ng-click="showBundleView=!showBundleView"> 
+									<i ng-class="showBundleView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i>
+								</a>
+							</div>
+						</li>
+						<div ng-class="{hidden:!showBundleView,chaldean:showBundleView}">
+							<li class="list-group-item" ng-repeat="subItem in bundleSubscriptions">
+								
+									{{subItem.subscription}} ({{subItem.environment}})
+									<div class="pull-right">
+										<button type="button" class="btn btn-warning btn-xs" ng-click="removeSubscription($event, subItem)">Unsubscribe</button>
+									</div>
+							</li>
+						</div>
+						<div ng-class="{hidden:!showBundleView,chaldean:showBundleView}">
+							<li class="list-group-item" ng-if="bundleSubscriptions.length <= 0">You do not have any Bundle Subscription.
+							</li>
+						</div>
+					</ul>
+
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info">APIs
+							<div class="pull-right">
+								<a ng-click="showAPIView=!showAPIView"> 
+									<i ng-class="showAPIView == false ?'fa fa-plus-circle':'fa fa-minus-circle'"></i>
+								</a>
+							</div>
+						</li>
+						<div ng-class="{hidden:!showAPIView,chaldean:showAPIView}">
+							<li class="list-group-item" ng-repeat="subItem in apiSubscriptions">
+								
+									{{subItem.subscription}} ({{subItem.environment}})
+									<div class="pull-right">
+										<button type="button" class="btn btn-warning btn-xs" ng-click="removeSubscription($event, subItem)">Unsubscribe</button>
+									</div>
+							</li>
+						</div>
+						<div ng-class="{hidden:!showAPIView,chaldean:showAPIView}">
+							<li class="list-group-item" ng-if="apiSubscriptions.length <= 0">You do not have any API Subscription.
+							</li>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<!-- TEST TEST TEST TEST -->
+		</div>
+		<div class="form-group">
+
+			<div class="col-sm-2">
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#exampleModal" data-whatever="@mdo">New
+					Subscription</button>
+			</div>
+		</div>
+
+</div>
+
+
+<div id="right" style="width: 40%;">
+	<div class="form-group">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">Recent Activity</div>
+				<!-- <div class="panel-body">
+	    <p>...</p>
+	  </div> -->
+
+				<!-- List group -->
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="activity in recentActivity">You {{activity.status}} to {{activity.level}} - {{activity.subscription}}  ({{activity.environment}})
+						<div class="pull-right">{{activity.subscriptionDate}}</div>
+					</li>
+					
+					<li class="list-group-item" ng-if="recentActivity.length <= 0">You currently do not have any recent subscriptions.
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="exampleModalLabel">New Subscription</h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="col-sm-12">
+						<label for="recipient-name" class="control-label">Level:</label> 
+					</div>
+					<div class="form-group">
+						<!-- <input
+							type="text" class="form-control" id="recipient-name"> -->
+							<div class="col-sm-12">
+							<div ng-dropdown-multiselect="" button-label="PID" options="levels" selected-model=levelSelected extra-settings="longDropdownSettings" translation-texts="levelCustomTexts" events="levelSelectEvent"></div>
+							</div>
+					</div><br/><br/><br/><br/>
+					
+					<div class="col-sm-7">
+						<label for="message-text" class="control-label" ng-show="backendSelect">Backend:</label>
+						<label for="message-text" class="control-label" ng-show="bundleSelect">Bundle:</label>
+						<label for="message-text" class="control-label" ng-show="apiSelect">API:</label>
+					</div>
+					<div class="col-sm-5">
+						<label for="message-text" class="control-label">Environment:</label>
+					</div>
+					
+					<div class="form-group" ng-show="backendSelect">
+						<div class="col-sm-7">
+						<div ng-dropdown-multiselect="" button-label="PID" options="backendModel" selected-model="backendSelected" extra-settings="multiSelectDropdownSettings" translation-texts="backendCustomTexts"></div>
+						</div>
+						<div class="col-sm-5">
+						<div ng-dropdown-multiselect="" button-label="PID" options="environmentModel" selected-model="envSelected" extra-settings="multiSelectDropdownSettings" translation-texts="environmentCustomTexts"></div>
+						</div>
+					</div>
+					<div class="form-group" ng-show="bundleSelect">
+						<div class="col-sm-7">
+						<div ng-dropdown-multiselect="" button-label="PID" options="bundleModel" selected-model="bundleSelected" extra-settings="multiSelectDropdownSettings" translation-texts="bundleCustomTexts"></div>
+						</div>
+						<div class="col-sm-5">
+						<div ng-dropdown-multiselect="" button-label="PID" options="environmentModel" selected-model="envSelected" extra-settings="multiSelectDropdownSettings" translation-texts="environmentCustomTexts"></div>
+						</div>
+					</div>
+					<div class="form-group" ng-show="apiSelect">
+						<div class="col-sm-7">
+						<div ng-dropdown-multiselect="" button-label="PID" options="apiModel" selected-model="apiSelected" extra-settings="multiSelectDropdownSettings" translation-texts="apiCustomTexts"></div>
+						</div>
+						<div class="col-sm-5">
+						<div ng-dropdown-multiselect="" button-label="PID" options="environmentModel" selected-model="envSelected" extra-settings="multiSelectDropdownSettings" translation-texts="environmentCustomTexts"></div>
+						</div>
+					</div>
+				</form>
+			</div><br/><br/><br/>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" ng-click="submitSubscription($event)">Subscribe</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- END TEST TEST TEST TEST -->
+
+</div>

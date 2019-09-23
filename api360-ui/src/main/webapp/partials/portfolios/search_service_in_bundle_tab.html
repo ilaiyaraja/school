@@ -1,0 +1,41 @@
+
+<div id='search_service_filters_id' ng-include="'partials/portfolios/search_service_in_bundle_filters.html'"></div>
+
+<div id='right' ng-controller="ApiSearchCtrl" ng-init="renderSearchServiceGrid()">
+	         		
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+				   
+				   <div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<b><i>{{apiSearchServiceGridHeaderMessages}}</i></b>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+									<table class="table table-striped table-bordered table-hover display" id="searchservicegrid" >
+										<thead>
+											<tr>
+												<th>Service Bundle</th>
+												<th>Service Bundle Version</th>																								
+												<th>API</th>											
+											</tr>
+										</thead>										
+									</table>
+								
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>					
+</div>
+
+
+
+

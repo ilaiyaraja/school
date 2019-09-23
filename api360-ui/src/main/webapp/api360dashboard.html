@@ -1,0 +1,56 @@
+
+
+<div ng-controller="GlobalCtrl" style="display: none;"></div>
+<div ng-controller="GlobalFilterCtrl" style="display: none;"></div>
+<div ng-controller="ExecDashboardFiltersCtrl" style="display: none;"></div>
+<div ng-controller="APIPortfolioFiltersCtrl" style="display: none;"></div>
+<div ng-controller="InstalledBundleVersionFiltersCtrl" style="display: none;"></div>
+<div ng-controller="ProjectPortfolioFiltersCtrl" style="display: none;"></div>
+<div ng-controller="AdapterInventoryFiltersCtrl" style="display: none;"></div>
+<div ng-controller="APITaxonomyFiltersCtrl" style="display: none;"></div>
+<div ng-controller="DefectReportFiltersCtrl" style="display: none;"></div>
+<div ng-controller="EnvironmentConfigurationFiltersCtrl" style="display: none;"></div>
+<div ng-controller="FederatedQcCoverageFilterCtrl" style="display: none;"></div>
+<div ng-controller="FunctionTestResultFiltersCtrl" style="display: none;"></div>
+<div ng-controller="APISchemaSearchFilterCtrl" style="display: none;"></div>
+<div ng-controller="APIArtifactFilterCtrl" style="display: none;"></div>
+
+<div id="api360dashboard" style="width: 100%;height: 100%;">
+	
+	<div id='head'>
+		<div ng-include="'partials/menu.html'" ng-controller="MenuCtrl"></div>
+	</div>
+	<div id='main'>	
+	
+			<div class="container-fluid" ng-controller="MenuCtrl">		  
+				
+				<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+					
+					<div class="input-group pull-left col-lg-7 col-md-7 col-xs-7 col-sm-7">
+						<ul class="breadcrumb pull-left">
+						  <li class="active">{{parentMenu}}</li>				  
+						  <li class="active">{{screenName}}</li>
+						</ul>
+					</div>
+					
+					<form name="quickSearchForm" class="css-form pull-right col-lg-5 col-md-5 col-xs-5 col-sm-5" ng-controller="QuckSearchCtrl">
+						
+						<span ng-show="quickSearchForm.quickSearchTerm.$error.minlength" class="err">Minimum 3 characters</span>
+            						
+					    <div class="input-group">
+					      <span class="input-group-addon">
+					        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					      </span>
+					      <input type="text" ng-required="true" ng-minlength="3" ng-trim="true" class="form-control" aria-label="..." placeholder="Quick Search, eg: InquireAccountProfile or tlgapi" ng-model="quickSearchTerm" name="quickSearchTerm" ng-enter="quickSearchClick()">						      
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button" ng-click="quickSearchClick()">Go!</button>
+					      </span>
+					    </div>
+				    </form>				    
+				</div>
+			</div>
+			
+	        <div ng-view="">	   
+	</div>  	        
+	<!--  <div id='foot'></div>-->
+</div>

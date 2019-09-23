@@ -1,0 +1,57 @@
+<style>
+	td
+	{
+	  vertical-align: center;
+	  text-align: left;
+	}
+
+</style>
+
+<div id='installedbundleFilter' ng-include="'partials/installed_bundle_version_filters.html'"></div>
+
+<div id='right'>
+	   <div class="list-inline hidden-sm hidden-sx hidden-md"
+		style="padding-left: 5px; z-index: 100; position: fixed;"> <a
+		ng-href=""
+		ng-click="installedbundleversionShowHide();installedbundleversionShowHideFilter=!installedbundleversionShowHideFilter"
+		title="Hide/Show Filters"> <i alt="Hide/Show Filters"
+			ng-class="installedbundleversionShowHideFilter == false ?'cursor glyphicon glyphicon-align-right':'cursor glyphicon glyphicon-align-left'"></i>
+	</a>
+	</div>
+	         		
+	         		
+	         		
+	         		<div class="navbar navbar-default navbar-fixed-left hidden-lg">
+				      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>			      
+				      <a class="navbar-brand" href="#">Search Filters</a>
+				   </div>
+
+
+
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-init="renderGrid()">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<b><i>{{gridHeaderMessages}}</i></b>
+								<b class="pull-right"><i>{{batchJobStatusDetail}}</i></b>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+									<table class="cell-border table-striped" id="installedBundleVersionGrid">
+										<thead>
+											<tr>
+												<th>Environment</th>
+												<th>Bundle</th>
+												<th>Version</th>																						
+											</tr>
+										</thead>										
+									</table>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+</div>					

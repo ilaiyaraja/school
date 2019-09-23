@@ -1,0 +1,57 @@
+<style>
+
+.modal-title{
+	color: white;
+}
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px; 
+ }
+
+.scrollClass{
+    height:249px;
+    overflow-y: scroll;
+}
+
+.scroll {
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+</style>
+          <div>
+			<div class="modal-header">
+				<button type="button" ng-click="cancel()" class="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="exampleModalLabel">{{releaseparam}} - Environment Alias Mapping</h4>
+			</div> <div class="scroll">
+				   <form class="form-horizontal " role="form">
+				    <div ng-repeat="column in enviromentArray track by $index" class="form-group form-group-sm ">
+				        <label class="col-sm-2 control-label" for="sm">{{column}} &nbsp;: &nbsp;</label>
+				       <!-- <div class="col-xs-2 col-sm-2 spacer"><span>{{column}} &nbsp;: &nbsp;</span></div>--> 
+	                   <div class="col-sm-10 spacer"> <input   class="form-control" style="width: 300px;" type="text" name="{{column}}" id="{{column}}" rel="{{$index}}" value="{{column}}" placeholder="please enter environment !"></div>
+	                 </div> 
+					
+			    </form>	
+			    </div>
+			 <div class="modal-footer">
+				<div class="col-sm-7"><span class="text-left text-warning"><strong>Email notification will be sent once the configuration extraction is complete. Click Submit to proceed.</strong></span></div>
+				<div class="col-sm-5"><span><button class="btn btn-primary" ng-click="submittEnvironmentMapping()">Submit <i class="glyphicon glyphicon-plus"></i></button>  <button class="btn btn-warning" ng-click="cancel()">Close <i class="glyphicon glyphicon-eye-close"></i></button></span></div>
+			</div>
+		</div>

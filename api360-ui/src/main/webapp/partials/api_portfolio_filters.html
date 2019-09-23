@@ -1,0 +1,145 @@
+ 
+ <div id='left'  class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm offcanvas-md" style="overflow: hidden; " ng-init="APIPortfolioloadComboBox()"  ng-controller="APIPortfolioFiltersCtrl">	         					
+		
+		  <form id="filters" class="form-inline" role="form">
+		  	  
+		       <div  class="form-group col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="programs">Programs:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='programAPIPortfolioData' 
+					button-label='Programs'
+					selected-model='programAPIPortfolioModel' 
+					extra-settings='programAPIPortfolioSettings' 
+					translation-texts='programAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="clients">Clients:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='clientAPIPortfolioData' 
+					button-label='Clients'
+					selected-model='clientAPIPortfolioModel' 
+					extra-settings='clientAPIPortfolioSettings' 
+					translation-texts='clientAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="profiles">Profiles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='profileAPIPortfolioData' 
+					button-label='Profiles'
+					selected-model='profileAPIPortfolioModel' 
+					extra-settings='profileAPIPortfolioSettings' 
+					translation-texts='profileAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="bundles">Service Bundles:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='bundleAPIPortfolioData' 
+					button-label='Bundles'
+					selected-model='bundleAPIPortfolioModel' 
+					extra-settings='bundleAPIPortfolioSettings' 
+					translation-texts='bundleAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apis">Apis:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apiAPIPortfolioData' 
+					button-label='APIs'
+					selected-model='apiAPIPortfolioModel' 
+					extra-settings='apiAPIPortfolioSettings' 
+					translation-texts='apiAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="backends">Backends:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='backendAPIPortfolioData' 
+					button-label='Backends'
+					selected-model='backendAPIPortfolioModel' 
+					extra-settings='backendAPIPortfolioSettings' 
+					translation-texts='backendAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="federated">Federated:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='federatedAPIPortfolioData' 
+					button-label='Federated'
+					selected-model='federatedAPIPortfolioModel' 
+					extra-settings='federatedAPIPortfolioSettings' 
+					translation-texts='federatedAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="apitoapi">API to API:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='apitoapiAPIPortfolioData' 
+					button-label='ApiToApi'
+					selected-model='apitoapiAPIPortfolioModel' 
+					extra-settings='apitoapiAPIPortfolioSettings' 
+					translation-texts='apitoapiAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			    <label class="control-label col-lg-12" for="subprocess">SubProcess:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='subprocessAPIPortfolioData' 
+					button-label='SubProcess'
+					selected-model='subprocessAPIPortfolioModel' 
+					extra-settings='subProcessAPIPortfolioSettings' 
+					translation-texts='subProcessAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			  <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12" style="display: none">
+			    <label class="control-label col-lg-12" for="environments">Environments:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='environmentAPIPortfolioData' 
+					button-label='Environments'
+					selected-model='environmentAPIPortfolioModel' 
+					extra-settings='environmentAPIPortfolioSettings' 
+					translation-texts='environmentAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  
+			   <div  class="form-group spacer col-sm-12 col-md-12 col-lg-12" >
+			    <label class="control-label col-lg-12" for="jmsproviders">JMS Provider:</label>
+			    <div ng-dropdown-multiselect='' 
+					options='jmsproviderAPIPortfolioData' 
+					button-label='Jmsproviders'
+					selected-model='jmsproviderAPIPortfolioModel' 
+					extra-settings='jmsproviderAPIPortfolioSettings' 
+					translation-texts='jmsproviderAPIPortfolioCustomTexts'
+					></div>	
+			  </div>
+			  
+			  <div class="form-group spacer col-sm-12 col-md-12 col-lg-12">
+			  
+			  	<!--  
+					<button type="button" id="searchButton" data-loading-text="Search" class="btn btn-info" autocomplete="off" ng-click="submitAPIPortfolioSearch()">
+						Search <i class="glyphicon glyphicon-search"></i>
+					</button>
+				-->
+					<button type="button" id="resetButton" data-loading-text="Reset" class="btn btn-warning" autocomplete="off" ng-click="resetAPIPortfolioFilters()">
+						Reset <i class="glyphicon glyphicon-refresh"></i>
+					</button>
+				</div>		
+			</form>
+</div>					
+		
+		
